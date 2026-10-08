@@ -1,0 +1,128 @@
+[
+  {
+    "id": "q01",
+    "category": "simples",
+    "question": "Em que ano a Nébula Logística foi fundada e em qual cidade fica sua sede?",
+    "gold": "A Nébula foi fundada em 2009 e tem sede em Curitiba (PR).",
+    "must_contain": ["2009", "Curitiba"]
+  },
+  {
+    "id": "q02",
+    "category": "simples",
+    "question": "Quantas horas por semana tem a jornada padrão dos colaboradores?",
+    "gold": "A jornada padrão é de 44 horas semanais.",
+    "must_contain": ["44"]
+  },
+  {
+    "id": "q03",
+    "category": "multi_hop",
+    "question": "Qual é o orçamento operacional de 2025 da unidade gerenciada por Rafael Bittencourt Lins?",
+    "gold": "Rafael Bittencourt Lins gerencia o CD Campinas (p. 3), cujo orçamento operacional de 2025 é de R$ 4.870.000 (p. 13).",
+    "must_contain": ["4.870.000"]
+  },
+  {
+    "id": "q04",
+    "category": "multi_hop",
+    "question": "Quem é o gerente responsável pela unidade onde ocorreu o vazamento de amônia em 2025?",
+    "gold": "O vazamento ocorreu no NB-CD-04 (p. 6), que é o CD de Joinville (p. 3), gerido por Mariana Teixeira Lopes (p. 3).",
+    "must_contain": ["Mariana Teixeira Lopes"]
+  },
+  {
+    "id": "q05",
+    "category": "multi_hop",
+    "question": "Quem chefia a área que conduz a homologação de fornecedores, e qual é o ramal dessa pessoa?",
+    "gold": "A homologação é conduzida por Suprimentos Estratégicos (p. 11), cujo responsável é Otávio Ramalho Prates, ramal 3528 (p. 2).",
+    "must_contain": ["Otávio Ramalho Prates", "3528"]
+  },
+  {
+    "id": "q06",
+    "category": "codigo_exato",
+    "question": "Qual é a capacidade nominal de carga do equipamento ACX-7741?",
+    "gold": "O ACX-7741 é uma transpaleteira de modelo especial da unidade de Joinville, com capacidade nominal de 2,7 t (p. 14). Não confundir com ACX-7714 (2,5 t), ACX-7417, ACX-7147 ou ACX-7471 da tabela da p. 7.",
+    "must_contain": ["2,7"]
+  },
+  {
+    "id": "q07",
+    "category": "codigo_exato",
+    "question": "A que se refere o PRT-0093?",
+    "gold": "É o procedimento para cargas com lacre violado: a carga fica em quarentena na doca de retenção por até 72 horas aguardando vistoria do cliente e da seguradora (p. 12). Não confundir com PRT-0039 (contagem cíclica) nem PRT-0930 (devoluções).",
+    "must_contain": ["quarentena", "72"]
+  },
+  {
+    "id": "q08",
+    "category": "codigo_exato",
+    "question": "Qual percentual de tolerância é definido no Anexo C-3?",
+    "gold": "O Anexo C-3 define tolerância de avaria no manuseio interno de 0,8% do volume movimentado, por unidade e por mês (definido no texto da seção 8.2, p. 12; a p. 16 só lista o título do anexo). Não confundir com C-2 (1,5%) nem C-4 (2,0%).",
+    "must_contain": ["0,8"]
+  },
+  {
+    "id": "q09",
+    "category": "agregacao",
+    "question": "Quantos incidentes classe 3 foram registrados no total em 2024, somando todas as áreas da empresa?",
+    "gold": "12 incidentes: 2 da frota Sul (p. 4) + 4 da frota Sudeste (p. 4) + 1 da cadeia fria (p. 12) + 3 da armazenagem (p. 14) + 2 da operação Nordeste (p. 15). O vazamento de amônia de 2025 (p. 6) não entra na conta.",
+    "must_contain": ["12"]
+  },
+  {
+    "id": "q10",
+    "category": "agregacao",
+    "question": "Se uma unidade levasse uma ocorrência de cada multa interna prevista no manual, qual seria o valor total?",
+    "gold": "R$ 15.850: atraso de entrega R$ 2.500 (p. 10) + desvio de temperatura R$ 7.800 (p. 12) + descarte irregular R$ 4.200 (p. 14) + falha documental R$ 1.350 (p. 15).",
+    "must_contain": ["2.500", "7.800", "4.200", "1.350"]
+  },
+  {
+    "id": "q11",
+    "category": "agregacao",
+    "question": "Quantos caminhões a frota própria da empresa tem ao todo, sem contar os VUCs?",
+    "gold": "150 caminhões: 48 na Região Sul (p. 4) + 73 na Região Sudeste (p. 4) + 29 na Região Nordeste (p. 15).",
+    "must_contain": ["150"]
+  },
+  {
+    "id": "q12",
+    "category": "distrator",
+    "question": "Qual é o prazo atual para pedir reembolso de uma despesa de viagem?",
+    "gold": "Pela política vigente (versão 2025, seção 6.2), o prazo é de 45 dias corridos após a data da despesa (p. 9). O prazo de 30 dias é da versão 2023, revogada.",
+    "must_contain": ["45"]
+  },
+  {
+    "id": "q13",
+    "category": "distrator",
+    "question": "Quantos caminhões compõem a frota própria que atende o Sul do país?",
+    "gold": "A frota própria da Região Sul tem 48 caminhões (e 12 VUCs) (p. 4). Os 73 caminhões são da Região Sudeste.",
+    "must_contain": ["48"]
+  },
+  {
+    "id": "q14",
+    "category": "distrator",
+    "question": "Hoje, em quanto tempo a empresa se compromete a entregar uma carga destinada a uma capital?",
+    "gold": "Pela revisão vigente (2025, seção 6.5), em até 54 horas a partir da coleta (p. 10). As 72 horas são da revisão 2024, substituída.",
+    "must_contain": ["54"]
+  },
+  {
+    "id": "q15",
+    "category": "referencia_secao",
+    "question": "O que diz a seção 7.3 do manual?",
+    "gold": "A seção 7.3 (Descredenciamento) determina que o fornecedor com nota inferior a 6,0 em duas avaliações trimestrais consecutivas é descredenciado, com aviso prévio de 75 dias; nova homologação só após doze meses; fraude, corrupção ou violação grave de segurança levam a descredenciamento imediato (p. 11).",
+    "must_contain": ["75"]
+  },
+  {
+    "id": "q16",
+    "category": "referencia_secao",
+    "question": "Quais assuntos são tratados na página 15 do manual?",
+    "gold": "A página 15 trata do capítulo 11 (Conformidade Fiscal e Documental: documentos de transporte, multa de R$ 1.350 por documento, guarda de documentos) e do capítulo 12 (Expansão Nordeste: operação regional a partir de Recife, frota de 29 caminhões e 8 VUCs, 2 incidentes classe 3 em 2024).",
+    "must_contain": ["Nordeste", "fiscal"]
+  },
+  {
+    "id": "q17",
+    "category": "sem_resposta",
+    "question": "Quantos dias por semana os colaboradores administrativos podem trabalhar em home office?",
+    "gold": "O manual não trata de home office ou trabalho remoto; a informação não está no documento.",
+    "must_contain": []
+  },
+  {
+    "id": "q18",
+    "category": "sem_resposta",
+    "question": "Como é calculada a participação nos lucros (PLR) paga aos funcionários?",
+    "gold": "O manual não trata de participação nos lucros ou PLR; a informação não está no documento.",
+    "must_contain": []
+  }
+]

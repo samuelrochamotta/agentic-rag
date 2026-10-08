@@ -1,0 +1,153 @@
+# agentic-rag
+
+Projeto didático para comparar dois jeitos de fazer RAG (Retrieval-Augmented Generation)
+sobre o mesmo PDF:
+
+- **RAG simples**: gera o embedding da pergunta, pega os 5 chunks mais parecidos e faz **uma** chamada ao LLM.
+- **RAG agêntico**: o LLM recebe um conjunto de **ferramentas de busca** e decide sozinho, em vários
+  passos, o que procurar, como procurar e quando já tem evidência suficiente para responder.
+
+Os dois usam o mesmo modelo de chat, o mesmo modelo de embedding, os mesmos chunks e `temperature=0`.
+Só a estratégia de recuperação muda. Os modelos rodam via [OpenRouter](https://openrouter.ai).
+
+## Resultado da avaliação (18 perguntas, `openai/gpt-4.1-mini`)
+
+| categoria | simples | agêntico |
+|---|:-:|:-:|
+| simples (controle) | 2/2 | 2/2 |
+| multi_hop | 2/3 | 3/3 |
+| codigo_exato | 2/3 | 3/3 |
+| agregacao | 1/3 | 2/3 |
+| distrator | 3/3 | 3/3 |
+| referencia_secao | 0/2 | 2/2 |
+| sem_resposta | 2/2 | 2/2 |
+| **total** | **67%** | **94%** |
+| chamadas LLM por pergunta | 1,0 | 2,7 |
+| tokens por pergunta | ~1.150 | ~6.060 |
+| custo das 18 perguntas | US$ 0,009 | US$ 0,031 |
+| latência média | 2,6 s | 4,7 s |
+
+Detalhes por pergunta, com o motivo de cada erro, em [`eval/results.md`](eval/results.md).
+As respostas completas e o trace do agente estão em `eval/results.json`.
+
+**Como ler esses números:**
+- O agêntico acertou mais, mas custou cerca de **3,3×** mais e levou quase o dobro do tempo.
+- O ganho está onde o top-k vetorial é estruturalmente fraco:
+  - "o que diz a seção 7.3?": o embedding da pergunta não se parece com o texto da seção;
+  - códigos quase idênticos (ACX-7741 vs ACX-7714);
+  - perguntas que exigem juntar duas páginas.
+- Nas perguntas diretas e nos distratores (versão vigente vs revogada de uma política) os dois empatam.
+- O agente também erra. Na q09 ele fez uma única busca, somou 11 em vez de 12 e não usou o `grep`
+  para enumerar todas as ocorrências. Agentes economizam esforço quando acham que já têm a resposta.
+- São 18 perguntas e uma rodada só. LLMs variam entre execuções, então rode `rag eval` mais de uma vez
+  antes de tirar conclusões fortes.
+
+## Como funciona
+
+```
+                RAG SIMPLES                                RAG AGÊNTICO
+  pergunta ─► embedding ─► top-5 chunks          pergunta ─► LLM ◄─────────────┐
+                              │                               │ decide        │
+                              ▼                               ▼               │
+                     LLM responde (1 chamada)      tool_call: search_keyword, │
+                                                   grep, read_page, ...       │
+                                                              │               │
+                                                              ▼               │
+                                                   executa a ferramenta ──────┘
+                                                   (repete até ter evidência,
+                                                    no máximo 8 passos)
+                                                              │
+                                                              ▼
+                                                      resposta com [p. N]
+```
+
+O loop agêntico (`src/agentic_rag/agent.py`) é escrito à mão, sem framework, para você ver cada etapa:
+1. **pensar**: o LLM recebe o histórico e a lista de ferramentas;
+2. **agir**: se ele devolve `tool_calls`, executamos cada uma;
+3. **observar**: os resultados voltam como mensagens `role="tool"`, e o ciclo recomeça.
+
+Quando o LLM responde sem chamar ferramenta, o loop termina.
+
+### Ferramentas do agente (`src/agentic_rag/tools.py`)
+
+| ferramenta | quando usar | por que existe |
+|---|---|---|
+| `search_semantic` | paráfrases, perguntas conceituais | busca por significado (embeddings + cosseno) |
+| `search_keyword` | códigos, siglas, nomes próprios | BM25: casa termos exatos que o embedding "borra" (ACX-7741 ≈ ACX-7714) |
+| `grep` | contar ou enumerar **todas** as ocorrências | busca exaustiva; o top-k sempre corta resultados |
+| `read_page` | tabelas, "o que tem na página 9" | contexto completo, sem cortes de chunk |
+| `read_neighbors` | o trecho achado parece cortado | expande o chunk para os vizinhos |
+| `list_outline` | a pergunta cita seção ou página | sumário (seções → páginas) |
+| `calculator` | somas, médias | LLMs erram aritmética; a calculadora usa `ast`, sem `eval` |
+
+As descrições dessas ferramentas são o "manual" que o LLM lê para escolher qual chamar. Vale a pena
+ler `TOOL_SCHEMAS` e o system prompt em `agent.py`.
+
+### Pipeline de ingestão (`src/agentic_rag/ingest.py`, `store.py`)
+
+1. O `pypdf` extrai o texto página a página.
+2. Cada página vira chunks de ~800 caracteres, com 150 de sobreposição e quebra em fim de frase. Cada
+   chunk guarda a página e a seção (cabeçalho numerado como `4.2 Título`).
+3. Os embeddings são gerados em lote e normalizados, então produto escalar = cosseno.
+4. Tudo é salvo em `.index/<hash>/`. O hash depende do PDF, do modelo e dos parâmetros de chunking,
+   então reingerir o mesmo arquivo não gasta nada.
+
+## Como rodar
+
+Requer [uv](https://docs.astral.sh/uv/).
+
+```bash
+cp .env.example .env            # coloque sua OPENROUTER_API_KEY
+uv sync
+
+uv run python data/gerar_pdf.py # (re)gera o PDF simulado em data/
+uv run rag ingest data/manual_simulado.pdf
+
+uv run rag ask "Quem gerencia o CD onde houve o vazamento de amônia?" --mode both --verbose
+uv run rag chat --mode agentic  # REPL interativo (cada pergunta é independente)
+uv run rag eval                 # roda as 18 perguntas nos dois modos e gera eval/results.md
+uv run pytest -q                # testes offline (sem rede)
+```
+
+`--verbose` mostra o trace do agente: cada ferramenta chamada, os argumentos e um resumo do resultado.
+Os modelos podem ser trocados no `.env` (`CHAT_MODEL`, `EMBED_MODEL`).
+
+## Avaliação
+
+- O PDF (`data/gerar_pdf.py`) é um manual fictício de 16 páginas, escrito para expor as fraquezas
+  conhecidas do RAG simples: multi-hop, códigos quase idênticos, agregação espalhada pelo documento,
+  distratores, referência a seção e perguntas sem resposta. Veja [`eval/README.md`](eval/README.md).
+- Uma resposta só conta como correta quando passa nas duas checagens:
+  - **determinística**: os termos de `must_contain` aparecem na resposta, sem diferenciar
+    maiúsculas nem acentos;
+  - **juiz LLM**: compara a resposta com o gabarito.
+- Nas perguntas `sem_resposta`, o sistema precisa declarar que não encontrou a informação.
+- O custo do juiz não entra na conta dos sistemas.
+
+## Estrutura
+
+```
+src/agentic_rag/
+  config.py      # .env → Settings
+  llm.py         # cliente OpenRouter + contabilização de uso (tokens, US$, latência)
+  ingest.py      # PDF → chunks → embeddings → índice em disco
+  store.py       # BM25, busca vetorial, grep, páginas, sumário
+  tools.py       # ferramentas do agente (schemas + implementação)
+  prompts.py     # instruções compartilhadas pelos dois RAGs
+  agent.py       # loop agêntico
+  simple_rag.py  # baseline
+  evaluate.py    # avaliação comparativa
+  cli.py         # comando `rag`
+data/gerar_pdf.py
+eval/questions.json
+tests/
+SPEC.md          # contrato interno entre os módulos
+```
+
+## Ideias para experimentar
+
+- Dar ao RAG simples busca híbrida (BM25 + vetorial) ou rerank, e ver quanto da diferença some.
+- Trocar o `CHAT_MODEL` por um modelo mais fraco ou mais forte. Agentes dependem muito da qualidade
+  do tool calling.
+- Reduzir `--max-steps` e observar o trade-off entre custo e acurácia.
+- Criar perguntas novas em `eval/questions.json`, ou apontar o projeto para um PDF seu.
