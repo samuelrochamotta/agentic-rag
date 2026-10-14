@@ -124,5 +124,197 @@
     "question": "Como é calculada a participação nos lucros (PLR) paga aos funcionários?",
     "gold": "O manual não trata de participação nos lucros ou PLR; a informação não está no documento.",
     "must_contain": []
+  },
+  {
+    "id": "q19",
+    "category": "simples",
+    "difficulty": "facil",
+    "question": "Com que frequência os sensores das câmaras e dos baús registram a temperatura, e por quanto tempo esses registros são guardados?",
+    "gold": "Os sensores registram a temperatura a cada cinco minutos e os registros são guardados por cinco anos (p. 12, seção 8.1).",
+    "must_contain": []
+  },
+  {
+    "id": "q20",
+    "category": "simples",
+    "difficulty": "facil",
+    "question": "Qual é a antecedência mínima para solicitar férias e qual é a duração mínima de um dos períodos quando elas são fracionadas?",
+    "gold": "O pedido deve ser registrado com antecedência mínima de trinta dias; no fracionamento em até três períodos, um deles deve ter pelo menos quatorze dias corridos (p. 8, seção 5.2).",
+    "must_contain": []
+  },
+  {
+    "id": "q21",
+    "category": "multi_hop",
+    "difficulty": "dificil",
+    "question": "Qual é o orçamento operacional de 2025 da unidade onde ocorreu o vazamento de amônia, e quem responde pela sua execução local?",
+    "gold": "O vazamento ocorreu no NB-CD-04 (p. 6), correspondente a Joinville, gerida por Mariana Teixeira Lopes (p. 3). Seu orçamento operacional de 2025 é R$ 3.210.000 (p. 13), e a gerente responde pela execução local (p. 3).",
+    "must_contain": ["Mariana Teixeira Lopes"]
+  },
+  {
+    "id": "q22",
+    "category": "multi_hop",
+    "difficulty": "dificil",
+    "question": "Quem é a responsável e qual é o ramal da área que deve tratar uma leitura fora da faixa de temperatura por 35 minutos?",
+    "gold": "Mais de trinta minutos fora da faixa configura desvio, tratado por Qualidade e Cadeia Fria (p. 12). A responsável é Silvana Torres Aguiar, ramal 3302 (p. 2).",
+    "must_contain": ["Silvana Torres Aguiar", "3302"]
+  },
+  {
+    "id": "q23",
+    "category": "multi_hop",
+    "difficulty": "dificil",
+    "question": "Na unidade liderada por Tiago Falcão Medeiros, uma despesa operacional de R$ 80.000, sem benefício próprio ou de parentes, exige aprovação de quem? Informe os nomes das pessoas responsáveis.",
+    "gold": "Tiago Falcão Medeiros gerencia Recife (p. 3). R$ 80.000 exige aprovação conjunta do gerente da unidade e da Controladoria, cuja responsável é Beatriz Moura Saldanha (p. 2). Portanto, Tiago e Beatriz devem aprovar conjuntamente.",
+    "must_contain": ["Tiago Falcão Medeiros", "Beatriz Moura Saldanha"]
+  },
+  {
+    "id": "q24",
+    "category": "multi_hop",
+    "difficulty": "limite",
+    "question": "Para o equipamento especial recebido em 2024 pela unidade do vazamento de amônia, informe código, capacidade, exigência específica para o operador e nome da gerente responsável por impedir atuação com certificação vencida.",
+    "gold": "O vazamento ocorreu em Joinville, NB-CD-04, gerida por Mariana Teixeira Lopes (p. 6 e p. 3). O equipamento especial é ACX-7741, de 2,7 t, operável apenas por condutores certificados pela própria fabricante (p. 14). A gerente deve impedir atuação com certificação vencida (p. 8).",
+    "must_contain": ["ACX-7741", "Mariana Teixeira Lopes", "fabricante"]
+  },
+  {
+    "id": "q25",
+    "category": "codigo_exato",
+    "difficulty": "dificil",
+    "question": "Compare PRT-0039, PRT-0093 e PRT-0930: qual trata de contagem cíclica, qual de lacre violado e qual de devoluções? Inclua a periodicidade da contagem e o prazo máximo de quarentena.",
+    "gold": "PRT-0039: contagem cíclica semanal das posições de maior giro (p. 14). PRT-0093: cargas com lacre violado, em quarentena por até 72 horas (p. 12). PRT-0930: devoluções, com conferência item a item e registro fotográfico antes da reintegração ao estoque (p. 14).",
+    "must_contain": ["PRT-0039", "PRT-0093", "PRT-0930", "72"]
+  },
+  {
+    "id": "q26",
+    "category": "codigo_exato",
+    "difficulty": "dificil",
+    "question": "Uma carga de 2,6 t pode ser movimentada pelo ACX-7714 ou pelo ACX-7741? Compare as capacidades e informe a restrição específica de qualificação do operador do equipamento que suporta a carga.",
+    "gold": "ACX-7714 não suporta a carga: capacidade de 2,5 t, sendo proibida operação acima da capacidade nominal (p. 7). ACX-7741 suporta 2,6 t por ter capacidade de 2,7 t, mas exige condutor certificado pela própria fabricante (p. 14).",
+    "must_contain": ["ACX-7714", "ACX-7741", "fabricante"]
+  },
+  {
+    "id": "q27",
+    "category": "codigo_exato",
+    "difficulty": "dificil",
+    "question": "O Anexo C-3 permite divergência de inventário de 1,5%, correto? Corrija a afirmação e compare o objeto e a base de cálculo dos Anexos C-2, C-3 e C-4.",
+    "gold": "A premissa é falsa. C-2 limita divergência entre estoque físico e sistêmico a 1,5% do número de posições contadas (p. 16). C-3 limita avaria em manuseio interno a 0,8% do volume movimentado (p. 12 e p. 16). C-4 limita pedidos expedidos fora da janela a 2,0% do total de pedidos (p. 16). Os três limites são por unidade e por mês.",
+    "must_contain": ["C-2", "C-3", "C-4"]
+  },
+  {
+    "id": "q28",
+    "category": "agregacao",
+    "difficulty": "limite",
+    "question": "Qual é a soma dos orçamentos operacionais de 2025 dos CDs atendidos pela frota própria da Região Sul? Liste as unidades e os valores usados na conta.",
+    "gold": "A frota Sul atende Curitiba, Joinville e Canoas (p. 4). Os orçamentos são R$ 5.120.000, R$ 3.210.000 e R$ 3.360.000, respectivamente (p. 13). Soma: R$ 11.690.000. Não incluir Campinas, Contagem, Recife, frota ou investimentos.",
+    "must_contain": ["Curitiba", "Joinville", "Canoas"]
+  },
+  {
+    "id": "q29",
+    "category": "agregacao",
+    "difficulty": "dificil",
+    "question": "Somando caminhões e VUCs, quantos veículos há na frota própria de cada região e no total da empresa?",
+    "gold": "Sul: 48 caminhões + 12 VUCs = 60 veículos. Sudeste: 73 + 21 = 94 (p. 4). Nordeste: 29 + 8 = 37 (p. 15). Total: 191 veículos, sendo 150 caminhões e 41 VUCs.",
+    "must_contain": ["60", "94", "37", "191"]
+  },
+  {
+    "id": "q30",
+    "category": "agregacao",
+    "difficulty": "limite",
+    "question": "Uma unidade teve duas entregas em capitais concluídas 80 horas após a coleta por falha própria, um desvio de temperatura de 40 minutos por porta deixada aberta, três descartes irregulares e dois documentos fiscais incorretos. Sem contrato diferenciado, qual é o total de multas internas? Detalhe o cálculo.",
+    "gold": "Cada entrega ultrapassou o prazo vigente de 54 horas em 26 horas, mais que 24, então 2 × R$ 2.500 = R$ 5.000 (p. 10). O desvio evitável acima de trinta minutos gera R$ 7.800 (p. 12). Descartes: 3 × R$ 4.200 = R$ 12.600 (p. 14). Documentos: 2 × R$ 1.350 = R$ 2.700 (p. 15). Total: R$ 28.100.",
+    "must_contain": []
+  },
+  {
+    "id": "q31",
+    "category": "agregacao",
+    "difficulty": "dificil",
+    "question": "Qual é a área coberta total dos seis centros de distribuição, e qual é a participação aproximada de Campinas nesse total? Mostre os valores usados e arredonde a participação para duas casas decimais.",
+    "gold": "Áreas em m²: Curitiba 18.400, Campinas 22.900, Contagem 14.200, Joinville 11.700, Canoas 12.300 e Recife 9.800 (p. 3). Total de 89.300 m². Campinas: 22.900 / 89.300 × 100 = aproximadamente 25,64%.",
+    "must_contain": []
+  },
+  {
+    "id": "q32",
+    "category": "agregacao",
+    "difficulty": "limite",
+    "question": "Considerando todos os CDs, qual tem o maior orçamento operacional de 2025 por metro quadrado de área coberta? Calcule a razão de cada unidade e informe o gerente da vencedora. Arredonde para duas casas decimais.",
+    "gold": "Dividindo orçamento (p. 13) por área coberta (p. 3), em R$/m² por ano: Curitiba 278,26; Campinas 212,66; Contagem 277,46; Joinville 274,36; Canoas 273,17; Recife 280,61. Recife tem a maior razão; seu gerente é Tiago Falcão Medeiros (p. 3).",
+    "must_contain": ["Recife", "Tiago Falcão Medeiros"]
+  },
+  {
+    "id": "q33",
+    "category": "distrator",
+    "difficulty": "limite",
+    "question": "Sem contrato diferenciado, três entregas para capitais terminaram 78 horas após a coleta por falha própria, 79 horas por falha própria e 90 horas por bloqueio de rodovia devidamente documentado. Em quais casos se aplica a multa por atraso, e qual é o total?",
+    "gold": "O prazo vigente é de 54 horas (p. 10). Aos 78 h o atraso é exatamente 24 h, sem multa pela regra de mais de 24 h. Aos 79 h o atraso é 25 h, com multa de R$ 2.500. Aos 90 h, o bloqueio de rodovia devidamente documentado exclui a penalidade. Total: R$ 2.500, apenas no segundo caso.",
+    "must_contain": []
+  },
+  {
+    "id": "q34",
+    "category": "distrator",
+    "difficulty": "dificil",
+    "question": "Considere fornecedores sem outras irregularidades: A recebeu notas 5,9 e 6,0 em trimestres consecutivos; B recebeu 5,9 e 5,8. C cometeu fraude, apesar de ter notas 9,0 e 9,5. Qual deles deve ser descredenciado, com qual aviso prévio, e quando B pode pedir nova homologação?",
+    "gold": "A não preenche o critério: 6,0 não é inferior a 6,0. B tem duas notas consecutivas inferiores a 6,0 e será descredenciado com aviso prévio de 75 dias; pode solicitar nova homologação após doze meses da comunicação. C é descredenciado imediatamente por fraude, sem aviso prévio (p. 11).",
+    "must_contain": ["75"]
+  },
+  {
+    "id": "q35",
+    "category": "distrator",
+    "difficulty": "dificil",
+    "question": "Um contrato específico com cliente, aprovado pela Diretoria Jurídica, prevê entrega em capital em até 60 horas. Qual prazo prevalece diante da revisão vigente do manual, e qual seria o prazo geral sem esse contrato?",
+    "gold": "Prevalecem as 60 horas do contrato específico aprovado pela Diretoria Jurídica, conforme a regra de conflito da seção 1.2 (p. 1). Sem esse contrato, o prazo geral vigente para capitais é de 54 horas (p. 10), não 72 horas da revisão substituída.",
+    "must_contain": ["60", "54"]
+  },
+  {
+    "id": "q36",
+    "category": "distrator",
+    "difficulty": "dificil",
+    "question": "Uma despesa de alimentação de R$ 115 referente a um único dia de viagem em 2025 foi solicitada 40 dias corridos depois, com comprovante válido e sem bebida alcoólica. Ela está dentro do prazo e do teto? Compare com os limites da política revogada.",
+    "gold": "Sim. A versão 2025 vigente permite solicitação até 45 dias corridos e alimentação até R$ 120 por dia. Pela versão 2023 revogada, a solicitação excederia os 30 dias e o valor excederia R$ 85. Aplicam-se os limites vigentes, portanto está dentro de ambos (p. 9).",
+    "must_contain": ["45", "120", "30", "85"]
+  },
+  {
+    "id": "q37",
+    "category": "referencia_secao",
+    "difficulty": "dificil",
+    "question": "A página 16 informa diretamente o percentual do Anexo C-3? Siga a remissão e explique o limite e a providência quando ele é excedido.",
+    "gold": "A p. 16 apresenta o título do Anexo C-3 e remete à seção 8.2 (p. 12). O limite é de 0,8% do volume movimentado por avaria em manuseio interno, por unidade e por mês. Acima disso, a unidade apresenta plano de ação à Diretoria de Operações.",
+    "must_contain": ["C-3", "Diretoria de Operações"]
+  },
+  {
+    "id": "q38",
+    "category": "referencia_secao",
+    "difficulty": "limite",
+    "question": "Conecte as seções 4.1, 4.2 e 4.3: por que o vazamento de amônia foi classe 3 mesmo sem perda de carga, quem devia ser notificado e em qual prazo, e quem centraliza a comunicação externa?",
+    "gold": "A seção 4.1 (p. 5) inclui vazamento de produto perigoso entre os critérios de classe 3; a seção 4.3 (p. 6) classifica o vazamento de amônia por esse motivo, apesar de não haver perda de carga. Pela seção 4.2 (p. 6), o gerente notifica Diretoria de Operações e Saúde e Segurança do Trabalho em até duas horas do conhecimento; o comitê é instalado no mesmo dia com participação obrigatória da Diretoria Jurídica. A comunicação com clientes e imprensa é centralizada na Diretoria Executiva.",
+    "must_contain": ["Diretoria de Operações", "Saúde e Segurança", "Diretoria Executiva"]
+  },
+  {
+    "id": "q39",
+    "category": "sem_resposta",
+    "difficulty": "dificil",
+    "question": "Qual é o número de patrimônio da válvula de alívio cuja corrosão causou o vazamento de amônia em março de 2025?",
+    "gold": "O documento informa a corrosão numa válvula de alívio fora da especificação (p. 6), mas não informa seu número de patrimônio. ACX-7741 é uma transpaleteira, não a válvula. Deve declarar que não encontrou o identificador no documento.",
+    "must_contain": []
+  },
+  {
+    "id": "q40",
+    "category": "sem_resposta",
+    "difficulty": "dificil",
+    "question": "Qual foi o valor em reais do prejuízo causado pelo incidente classe 3 da cadeia fria em 2024?",
+    "gold": "O documento menciona perda total de um lote de insumos hospitalares após pane elétrica (p. 12), mas não informa o valor do prejuízo. Não é possível deduzi-lo da multa por desvio de temperatura nem dos orçamentos.",
+    "must_contain": []
+  },
+  {
+    "id": "q41",
+    "category": "resposta_parcial",
+    "difficulty": "limite",
+    "question": "Quem é a responsável e qual é o ramal da área cuja tabela define o reembolso por quilômetro com veículo próprio? Qual valor deve ser reembolsado por uma viagem de 180 km em 2025?",
+    "gold": "A tabela é da Controladoria (p. 9), responsável Beatriz Moura Saldanha, ramal 2210 (p. 2). O manual não apresenta a tarifa por quilômetro; portanto, não permite calcular o valor para 180 km. Deve responder a parte disponível e declarar a ausência da tarifa, sem usar o teto de alimentação como tarifa.",
+    "must_contain": ["Beatriz Moura Saldanha", "2210"]
+  },
+  {
+    "id": "q42",
+    "category": "resposta_parcial",
+    "difficulty": "limite",
+    "question": "Quantos incidentes de todas as classes ocorreram na empresa em 2025? Informe o incidente grave descrito e explique se o manual permite calcular o total anual.",
+    "gold": "O manual descreve um vazamento de amônia classe 3 em 14 de março de 2025 no NB-CD-04, Joinville (p. 6 e p. 3). Outras ocorrências de 2025, classes 1 e 2, estão apenas nos relatórios mensais não reproduzidos. O total de todas as classes em 2025 não pode ser calculado com o manual; nem o único evento descrito nem os 12 incidentes classe 3 de 2024 são esse total.",
+    "must_contain": ["2025", "amônia"]
   }
 ]

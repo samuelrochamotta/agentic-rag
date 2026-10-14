@@ -30,6 +30,11 @@ Só a estratégia de recuperação muda. Os modelos rodam via [OpenRouter](https
 Detalhes por pergunta, com o motivo de cada erro, em [`eval/results.md`](eval/results.md).
 As respostas completas e o trace do agente estão em `eval/results.json`.
 
+O conjunto atual tem **42 perguntas**, incluindo 24 adicionais com cálculos, exceções,
+cadeias de busca e informação parcialmente ausente. A tabela acima registra a rodada
+original de 18 perguntas. Veja os casos difíceis e os comandos de comparação entre
+simples, agêntico e híbrido em [`eval/README.md`](eval/README.md).
+
 **Como ler esses números:**
 - O agêntico acertou mais, mas custou cerca de **3,3×** mais e levou quase o dobro do tempo.
 - O ganho está onde o top-k vetorial é estruturalmente fraco:
@@ -144,7 +149,7 @@ uv run rag ingest data/manual_simulado.pdf
 uv run rag ask "Quem gerencia o CD onde houve o vazamento de amônia?" --mode both --verbose
 uv run rag chat --mode agentic  # REPL interativo (cada pergunta é independente)
 uv run rag ask "Quantos incidentes classe 3 houve em 2024?" --mode hybrid --verbose
-uv run rag eval                 # roda as 18 perguntas nos três modos e gera eval/results.md
+uv run rag eval                 # roda as 42 perguntas nos três modos e gera eval/results.md
 uv run rag eval --systems hybrid --decider llm   # só o híbrido, com o LLM decidindo
 uv run pytest -q                # testes offline (sem rede)
 ```
