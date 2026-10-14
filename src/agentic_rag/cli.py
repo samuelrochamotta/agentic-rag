@@ -1,9 +1,10 @@
 """Linha de comando `rag`.
 
     rag ingest data/manual_simulado.pdf
-    rag ask "pergunta" [--mode agentic|simple|both] [--verbose]
-    rag chat [--mode agentic|simple]
-    rag eval [--only q01,q02] [--workers 4]
+    rag ask "pergunta" [--mode agentic|simple|both|hybrid] [--decider jev|llm] [--verbose]
+    rag chat [--mode agentic|simple|both|hybrid]
+    rag eval [--only q01,q02] [--workers 4] [--systems simple,agentic,hybrid] [--decider jev|llm]
+    rag regrade eval/runs/results_jev.json [...]
 
 O caminho do índice ativo fica em `.index/current`, assim `ask/chat/eval` não
 precisam receber o índice toda vez.
@@ -76,9 +77,23 @@ def _show_comparison(simple: Answer, agentic: Answer) -> None:
     console.print(table)
 
 
-def _answer(question: str, mode: str, store, llm: LLMClient, verbose: bool, max_steps: int) -> None:
+def _answer(question: str, mode: str, store, llm: LLMClient, verbose: bool, max_steps: int,
+            decider=None) -> None:
     from .agent import run_agent
     from .simple_rag import run_simple
+
+    if mode == "hybrid":
+        from .hybrid import describe_route, run_hybrid
+
+        if verbose:
+            hybrid = run_hybrid(question, store, llm, decider=decider, max_steps=max_steps, verbose=True,
+                                console=console)
+        else:
+            with console.status("RAG híbrido decidindo..."):
+                hybrid = run_hybrid(question, store, llm, decider=decider, max_steps=max_steps)
+        console.print(f"[dim]{describe_route(hybrid)}[/]")
+        _show_answer(hybrid, f"RAG híbrido ({decider.name})", "magenta")
+        return
 
     simple = agentic = None
     if mode in ("simple", "both"):
@@ -117,14 +132,21 @@ def cmd_ingest(args) -> None:
                   f"[dim](embeddings: {llm.usage.embed_calls} chamadas, US$ {llm.usage.cost_usd:.5f})[/]")
 
 
+def _decider_for(args):
+    from .decider import make_decider
+
+    return make_decider(args.decider) if args.mode == "hybrid" else None
+
+
 def cmd_ask(args) -> None:
     store = _load_store()
-    _answer(args.question, args.mode, store, LLMClient(), args.verbose, args.max_steps)
+    _answer(args.question, args.mode, store, LLMClient(), args.verbose, args.max_steps, _decider_for(args))
 
 
 def cmd_chat(args) -> None:
     store = _load_store()
     llm = LLMClient()
+    decider = _decider_for(args)
     console.print(f"[bold]Chat ({args.mode})[/] — digite sua pergunta; 'sair' ou Ctrl+D para encerrar.")
     while True:
         try:
@@ -136,7 +158,7 @@ def cmd_chat(args) -> None:
             break
         if question:
             # Cada pergunta é independente (sem memória de conversa): mantém a comparação limpa.
-            _answer(question, args.mode, store, llm, args.verbose, args.max_steps)
+            _answer(question, args.mode, store, llm, args.verbose, args.max_steps, decider)
     console.print(f"[dim]Total da sessão: {llm.usage.llm_calls} chamadas, US$ {llm.usage.cost_usd:.5f}[/]")
 
 
@@ -145,8 +167,21 @@ def cmd_eval(args) -> None:
 
     store = _load_store()
     only = [x.strip() for x in args.only.split(",") if x.strip()] if args.only else None
+    systems = tuple(x.strip() for x in args.systems.split(",") if x.strip())
+    unknown = set(systems) - {"simple", "agentic", "hybrid"}
+    if unknown or not systems:
+        console.print(f"[red]--systems inválido:[/] {args.systems} (use simple, agentic, hybrid)")
+        sys.exit(1)
     run_evaluation(store, questions_path=Path(args.questions), only=only, workers=args.workers,
-                   max_steps=args.max_steps, console=console)
+                   max_steps=args.max_steps, console=console, systems=systems, decider_kind=args.decider)
+
+
+def cmd_regrade(args) -> None:
+    from .evaluate import regrade
+
+    for path in args.results:
+        console.rule(path)
+        regrade(Path(path), workers=args.workers, console=console)
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -159,13 +194,17 @@ def main(argv: list[str] | None = None) -> None:
 
     p = sub.add_parser("ask", help="faz uma pergunta")
     p.add_argument("question")
-    p.add_argument("--mode", choices=["agentic", "simple", "both"], default="agentic")
+    p.add_argument("--mode", choices=["agentic", "simple", "both", "hybrid"], default="agentic")
+    p.add_argument("--decider", choices=["jev", "llm"], default=None,
+                   help="quem toma as decisões do modo híbrido (padrão: jev, via OpenRouter)")
     p.add_argument("--verbose", "-v", action="store_true", help="mostra o trace do agente")
     p.add_argument("--max-steps", type=int, default=8)
     p.set_defaults(func=cmd_ask)
 
     p = sub.add_parser("chat", help="REPL interativo")
-    p.add_argument("--mode", choices=["agentic", "simple", "both"], default="agentic")
+    p.add_argument("--mode", choices=["agentic", "simple", "both", "hybrid"], default="agentic")
+    p.add_argument("--decider", choices=["jev", "llm"], default=None,
+                   help="quem toma as decisões do modo híbrido (padrão: jev, via OpenRouter)")
     p.add_argument("--verbose", "-v", action="store_true")
     p.add_argument("--max-steps", type=int, default=8)
     p.set_defaults(func=cmd_chat)
@@ -175,7 +214,15 @@ def main(argv: list[str] | None = None) -> None:
     p.add_argument("--workers", type=int, default=4, help="perguntas em paralelo (default 4)")
     p.add_argument("--max-steps", type=int, default=8)
     p.add_argument("--questions", default="eval/questions.json")
+    p.add_argument("--systems", default="simple,agentic,hybrid", help="sistemas a avaliar, separados por vírgula")
+    p.add_argument("--decider", choices=["jev", "llm"], default=None,
+                   help="quem toma as decisões do modo híbrido (padrão: jev, via OpenRouter)")
     p.set_defaults(func=cmd_eval)
+
+    p = sub.add_parser("regrade", help="rejulga respostas salvas com o juiz atual (sem rodar os sistemas)")
+    p.add_argument("results", nargs="+", help="arquivos results.json")
+    p.add_argument("--workers", type=int, default=4)
+    p.set_defaults(func=cmd_regrade)
 
     args = parser.parse_args(argv)
     args.func(args)

@@ -15,7 +15,7 @@ from __future__ import annotations
 
 import json
 import re
-from typing import Any
+from typing import Any, Callable
 
 from rich.console import Console
 from rich.panel import Panel
@@ -125,11 +125,19 @@ def run_agent(
     console: Console | None = None,
     toolbox=None,
     tool_schemas: list[dict] | None = None,
+    extra_instructions: str | None = None,
+    check_final: Callable[[str, list[dict]], str | None] | None = None,
 ) -> Answer:
     """Responde `question` deixando o LLM decidir quais ferramentas usar.
 
     `toolbox` e `tool_schemas` são opcionais: em produção são criados a partir do
     `store` e do `llm`; nos testes injetamos versões falsas (sem rede).
+
+    Ganchos usados pelo modo híbrido (`hybrid.py`):
+    - `extra_instructions`: texto anexado ao prompt de sistema (ex.: "comece pelo grep");
+    - `check_final(rascunho, mensagens)`: chamado quando o modelo quer parar. Se devolver
+      um texto, ele volta ao modelo como pedido para continuar buscando. Roda no máximo
+      uma vez por pergunta e só se ainda houver passos, para não virar um loop.
     """
     if toolbox is None or tool_schemas is None:
         # Import tardio: só precisamos de tools.py quando não há fakes injetados.
@@ -144,12 +152,13 @@ def run_agent(
     usage_before = llm.usage.snapshot()
 
     messages: list[dict] = [
-        {"role": "system", "content": SYSTEM_PROMPT},
+        {"role": "system", "content": SYSTEM_PROMPT + (f"\n\n{extra_instructions}" if extra_instructions else "")},
         {"role": "user", "content": question},
     ]
     sources: list[str] = []
     trace: list[dict] = []
     final_text: str | None = None
+    checked = False
 
     if verbose:
         console.print(Panel(question, title="[bold cyan]Pergunta[/]", border_style="cyan"))
@@ -162,6 +171,18 @@ def run_agent(
 
         # Sem tool_calls = o modelo considera que já pode responder. Fim do loop.
         if not tool_calls:
+            if check_final and not checked and step < max_steps:
+                checked = True
+                feedback = check_final(msg.content or "", messages)
+                if feedback:
+                    # O rascunho fica no histórico, seguido do pedido para continuar.
+                    messages.append({"role": "assistant", "content": msg.content or ""})
+                    messages.append({"role": "user", "content": feedback})
+                    trace.append({"step": step, "tool": "check_final", "args": {},
+                                  "result_preview": _preview(feedback)})
+                    if verbose:
+                        console.print(f"[bold magenta]Passo {step}:[/] verificador pediu mais buscas")
+                    continue
             final_text = msg.content or ""
             if verbose:
                 console.print(f"[bold green]Passo {step}:[/] resposta final (sem ferramentas)")

@@ -1,23 +1,36 @@
 {
+  "decider": "jev",
   "summary": {
     "agregacao": {
       "simple": {
         "n": 3,
         "accuracy": 0.6666666666666666,
         "avg_llm_calls": 1.0,
-        "avg_tokens": 1148.3333333333333,
-        "total_cost_usd": 0.000525845,
-        "avg_cost_usd": 0.00017528166666666667,
-        "avg_latency_s": 4.437456666336705
+        "avg_tokens": 1147.3333333333333,
+        "total_cost_usd": 0.000524345,
+        "avg_cost_usd": 0.00017478166666666666,
+        "avg_latency_s": 4.4516336109178765,
+        "avg_decider_calls": 0.0
       },
       "agentic": {
         "n": 3,
-        "accuracy": 0.6666666666666666,
-        "avg_llm_calls": 5.333333333333333,
-        "avg_tokens": 16735.666666666668,
-        "total_cost_usd": 0.001870115,
-        "avg_cost_usd": 0.0006233716666666667,
-        "avg_latency_s": 15.712392916126797
+        "accuracy": 1.0,
+        "avg_llm_calls": 4.333333333333333,
+        "avg_tokens": 12867.666666666666,
+        "total_cost_usd": 0.00165908,
+        "avg_cost_usd": 0.0005530266666666667,
+        "avg_latency_s": 11.489501860768845,
+        "avg_decider_calls": 0.0
+      },
+      "hybrid": {
+        "n": 3,
+        "accuracy": 1.0,
+        "avg_llm_calls": 5.0,
+        "avg_tokens": 15487.333333333334,
+        "total_cost_usd": 0.00224683,
+        "avg_cost_usd": 0.0007489433333333333,
+        "avg_latency_s": 13.371070875165364,
+        "avg_decider_calls": 2.0
       }
     },
     "codigo_exato": {
@@ -25,19 +38,31 @@
         "n": 3,
         "accuracy": 1.0,
         "avg_llm_calls": 1.0,
-        "avg_tokens": 1189.0,
-        "total_cost_usd": 0.0004993549999999999,
-        "avg_cost_usd": 0.00016645166666666664,
-        "avg_latency_s": 3.6529957780924938
+        "avg_tokens": 1186.6666666666667,
+        "total_cost_usd": 0.000495855,
+        "avg_cost_usd": 0.00016528500000000001,
+        "avg_latency_s": 4.510779624960075,
+        "avg_decider_calls": 0.0
       },
       "agentic": {
         "n": 3,
         "accuracy": 1.0,
         "avg_llm_calls": 2.0,
-        "avg_tokens": 3566.0,
-        "total_cost_usd": 0.000465575,
-        "avg_cost_usd": 0.00015519166666666667,
-        "avg_latency_s": 3.6336441387732825
+        "avg_tokens": 3563.6666666666665,
+        "total_cost_usd": 0.000462075,
+        "avg_cost_usd": 0.000154025,
+        "avg_latency_s": 4.985045195091516,
+        "avg_decider_calls": 0.0
+      },
+      "hybrid": {
+        "n": 3,
+        "accuracy": 0.6666666666666666,
+        "avg_llm_calls": 2.6666666666666665,
+        "avg_tokens": 5620.666666666667,
+        "total_cost_usd": 0.0011826060000000001,
+        "avg_cost_usd": 0.000394202,
+        "avg_latency_s": 8.24594806988413,
+        "avg_decider_calls": 2.0
       }
     },
     "distrator": {
@@ -45,19 +70,31 @@
         "n": 3,
         "accuracy": 1.0,
         "avg_llm_calls": 1.0,
-        "avg_tokens": 1158.6666666666667,
-        "total_cost_usd": 0.00047099,
-        "avg_cost_usd": 0.00015699666666666668,
-        "avg_latency_s": 3.213997777706633
+        "avg_tokens": 1174.3333333333333,
+        "total_cost_usd": 0.00049449,
+        "avg_cost_usd": 0.00016483,
+        "avg_latency_s": 3.2275669306206205,
+        "avg_decider_calls": 0.0
       },
       "agentic": {
         "n": 3,
         "accuracy": 1.0,
         "avg_llm_calls": 2.0,
-        "avg_tokens": 3944.3333333333335,
-        "total_cost_usd": 0.00060527,
-        "avg_cost_usd": 0.00020175666666666665,
-        "avg_latency_s": 4.516565568900357
+        "avg_tokens": 4004.0,
+        "total_cost_usd": 0.00062422,
+        "avg_cost_usd": 0.00020807333333333332,
+        "avg_latency_s": 5.38128869406258,
+        "avg_decider_calls": 0.0
+      },
+      "hybrid": {
+        "n": 3,
+        "accuracy": 1.0,
+        "avg_llm_calls": 1.3333333333333333,
+        "avg_tokens": 2096.6666666666665,
+        "total_cost_usd": 0.000408898,
+        "avg_cost_usd": 0.00013629933333333334,
+        "avg_latency_s": 4.363385638532539,
+        "avg_decider_calls": 1.3333333333333333
       }
     },
     "multi_hop": {
@@ -65,19 +102,31 @@
         "n": 3,
         "accuracy": 0.6666666666666666,
         "avg_llm_calls": 1.0,
-        "avg_tokens": 1264.0,
-        "total_cost_usd": 0.00055013,
-        "avg_cost_usd": 0.00018337666666666668,
-        "avg_latency_s": 4.127379861505081
+        "avg_tokens": 1270.6666666666667,
+        "total_cost_usd": 0.00056013,
+        "avg_cost_usd": 0.00018671,
+        "avg_latency_s": 6.257260152604431,
+        "avg_decider_calls": 0.0
       },
       "agentic": {
         "n": 3,
         "accuracy": 1.0,
-        "avg_llm_calls": 2.3333333333333335,
-        "avg_tokens": 5061.333333333333,
-        "total_cost_usd": 0.0008226300000000001,
-        "avg_cost_usd": 0.00027421000000000005,
-        "avg_latency_s": 6.217041778067748
+        "avg_llm_calls": 2.6666666666666665,
+        "avg_tokens": 6116.333333333333,
+        "total_cost_usd": 0.0009389250000000001,
+        "avg_cost_usd": 0.000312975,
+        "avg_latency_s": 7.316169486070673,
+        "avg_decider_calls": 0.0
+      },
+      "hybrid": {
+        "n": 3,
+        "accuracy": 1.0,
+        "avg_llm_calls": 2.6666666666666665,
+        "avg_tokens": 6418.0,
+        "total_cost_usd": 0.001685719,
+        "avg_cost_usd": 0.0005619063333333333,
+        "avg_latency_s": 11.203841041928777,
+        "avg_decider_calls": 2.0
       }
     },
     "referencia_secao": {
@@ -85,19 +134,31 @@
         "n": 2,
         "accuracy": 0.0,
         "avg_llm_calls": 1.0,
-        "avg_tokens": 1127.5,
-        "total_cost_usd": 0.00032978,
-        "avg_cost_usd": 0.00016489,
-        "avg_latency_s": 4.17724739597179
+        "avg_tokens": 1131.0,
+        "total_cost_usd": 0.00033328000000000003,
+        "avg_cost_usd": 0.00016664000000000002,
+        "avg_latency_s": 3.0712669799104333,
+        "avg_decider_calls": 0.0
       },
       "agentic": {
         "n": 2,
         "accuracy": 0.5,
         "avg_llm_calls": 2.5,
-        "avg_tokens": 4978.5,
-        "total_cost_usd": 0.000442425,
-        "avg_cost_usd": 0.0002212125,
-        "avg_latency_s": 5.377872021403164
+        "avg_tokens": 4955.5,
+        "total_cost_usd": 0.000419425,
+        "avg_cost_usd": 0.0002097125,
+        "avg_latency_s": 4.728989395080134,
+        "avg_decider_calls": 0.0
+      },
+      "hybrid": {
+        "n": 2,
+        "accuracy": 0.5,
+        "avg_llm_calls": 3.0,
+        "avg_tokens": 6772.5,
+        "total_cost_usd": 0.000854587,
+        "avg_cost_usd": 0.0004272935,
+        "avg_latency_s": 10.063180314609781,
+        "avg_decider_calls": 2.0
       }
     },
     "sem_resposta": {
@@ -108,16 +169,28 @@
         "avg_tokens": 1095.5,
         "total_cost_usd": 0.000254875,
         "avg_cost_usd": 0.0001274375,
-        "avg_latency_s": 2.6734949585516006
+        "avg_latency_s": 2.7526031041052192,
+        "avg_decider_calls": 0.0
       },
       "agentic": {
         "n": 2,
         "accuracy": 1.0,
-        "avg_llm_calls": 4.5,
-        "avg_tokens": 13487.5,
-        "total_cost_usd": 0.001245645,
-        "avg_cost_usd": 0.0006228225,
-        "avg_latency_s": 12.286748103098944
+        "avg_llm_calls": 5.0,
+        "avg_tokens": 14737.0,
+        "total_cost_usd": 0.001163595,
+        "avg_cost_usd": 0.0005817975,
+        "avg_latency_s": 12.178782062372193,
+        "avg_decider_calls": 0.0
+      },
+      "hybrid": {
+        "n": 2,
+        "accuracy": 1.0,
+        "avg_llm_calls": 1.0,
+        "avg_tokens": 1095.5,
+        "total_cost_usd": 0.00017339,
+        "avg_cost_usd": 8.6695e-05,
+        "avg_latency_s": 3.6148987086489797,
+        "avg_decider_calls": 1.0
       }
     },
     "simples": {
@@ -125,19 +198,31 @@
         "n": 2,
         "accuracy": 1.0,
         "avg_llm_calls": 1.0,
-        "avg_tokens": 1083.5,
-        "total_cost_usd": 0.00026391,
-        "avg_cost_usd": 0.000131955,
-        "avg_latency_s": 3.5983299165964127
+        "avg_tokens": 1084.5,
+        "total_cost_usd": 0.00026491,
+        "avg_cost_usd": 0.000132455,
+        "avg_latency_s": 6.688972146017477,
+        "avg_decider_calls": 0.0
       },
       "agentic": {
         "n": 2,
         "accuracy": 1.0,
         "avg_llm_calls": 2.0,
-        "avg_tokens": 4524.0,
-        "total_cost_usd": 0.000557675,
-        "avg_cost_usd": 0.0002788375,
-        "avg_latency_s": 5.147096729138866
+        "avg_tokens": 4510.0,
+        "total_cost_usd": 0.000712135,
+        "avg_cost_usd": 0.0003560675,
+        "avg_latency_s": 4.704433562699705,
+        "avg_decider_calls": 0.0
+      },
+      "hybrid": {
+        "n": 2,
+        "accuracy": 1.0,
+        "avg_llm_calls": 1.5,
+        "avg_tokens": 3030.0,
+        "total_cost_usd": 0.000626835,
+        "avg_cost_usd": 0.0003134175,
+        "avg_latency_s": 5.297932251356542,
+        "avg_decider_calls": 1.5
       }
     },
     "TOTAL": {
@@ -145,19 +230,31 @@
         "n": 18,
         "accuracy": 0.7777777777777778,
         "avg_llm_calls": 1.0,
-        "avg_tokens": 1160.7222222222222,
-        "total_cost_usd": 0.002894885,
-        "avg_cost_usd": 0.00016082694444444443,
-        "avg_latency_s": 3.7329797107312412
+        "avg_tokens": 1164.388888888889,
+        "total_cost_usd": 0.002927885,
+        "avg_cost_usd": 0.00016266027777777777,
+        "avg_latency_s": 4.464855856520848,
+        "avg_decider_calls": 0.0
       },
       "agentic": {
         "n": 18,
+        "accuracy": 0.9444444444444444,
+        "avg_llm_calls": 2.888888888888889,
+        "avg_tokens": 7114.444444444444,
+        "total_cost_usd": 0.005979455,
+        "avg_cost_usd": 0.00033219194444444444,
+        "avg_latency_s": 7.263356986015828,
+        "avg_decider_calls": 0.0
+      },
+      "hybrid": {
+        "n": 18,
         "accuracy": 0.8888888888888888,
-        "avg_llm_calls": 2.9444444444444446,
-        "avg_tokens": 7439.0,
-        "total_cost_usd": 0.006009335,
-        "avg_cost_usd": 0.00033385194444444444,
-        "avg_latency_s": 7.5479092729381385
+        "avg_llm_calls": 2.5555555555555554,
+        "avg_tokens": 6148.0,
+        "total_cost_usd": 0.007178865,
+        "avg_cost_usd": 0.00039882583333333333,
+        "avg_latency_s": 8.305819968097946,
+        "avg_decider_calls": 1.7222222222222223
       }
     }
   },
@@ -173,7 +270,7 @@
       ],
       "simple": {
         "answer": {
-          "text": "A Nébula Logística foi fundada em 2009 e sua sede fica em Curitiba (PR) [p. 1].",
+          "text": "A Nébula Logística foi fundada em 2009, em Curitiba (PR), onde fica sua sede administrativa [p. 1].",
           "sources": [
             "manual_simulado:p1:c0",
             "manual_simulado:p3:c0",
@@ -185,9 +282,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1154,
-            "completion_tokens": 31,
-            "cost_usd": 0.00015831,
-            "latency_s": 4.105670791119337
+            "completion_tokens": 33,
+            "cost_usd": 0.00015931,
+            "latency_s": 5.440120125189424,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -196,12 +294,12 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Informa que foi fundada em 2009 e tem sede em Curitiba (PR), conforme a referência."
+          "reason": "Informa o ano de fundação (2009) e a sede em Curitiba (PR), conforme a referência."
         }
       },
       "agentic": {
         "answer": {
-          "text": "A Nébula Logística foi fundada em 2009 e tem sede em Curitiba (PR) [p. 1].",
+          "text": "A Nébula Logística foi fundada em 2009 e tem sede administrativa em Curitiba (PR) [p. 1].",
           "sources": [
             "manual_simulado:p1:c0",
             "manual_simulado:p2:c0",
@@ -221,10 +319,11 @@
           "usage": {
             "llm_calls": 2,
             "embed_calls": 1,
-            "prompt_tokens": 5129,
-            "completion_tokens": 108,
-            "cost_usd": 0.000375305,
-            "latency_s": 4.959275667089969
+            "prompt_tokens": 5123,
+            "completion_tokens": 107,
+            "cost_usd": 0.00053208,
+            "latency_s": 4.908559000119567,
+            "decider_calls": 0
           },
           "trace": [
             {
@@ -240,10 +339,10 @@
               "step": 1,
               "tool": "search_semantic",
               "args": {
-                "query": "ano de fundação da empresa e cidade onde fica a sede da Nébula Logística",
+                "query": "ano de fundação da Nébula Logística e cidade onde fica a sede",
                 "k": 10
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p1:c0\", \"page\": 1, \"section\": \"1.1 Sobre a empresa\", \"score\": 0.723, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 1 de 16\\nManual de Operaçõ…"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p1:c0\", \"page\": 1, \"section\": \"1.1 Sobre a empresa\", \"score\": 0.686, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 1 de 16\\nManual de Operaçõ…"
             }
           ]
         },
@@ -252,7 +351,67 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Informa corretamente que a Nébula foi fundada em 2009 e tem sede em Curitiba (PR)."
+          "reason": "Informa que foi fundada em 2009 e tem sede em Curitiba (PR), conforme a referência."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "A Nébula Logística foi fundada em 2009, e sua sede administrativa fica em Curitiba (PR) [p. 1].",
+          "sources": [
+            "manual_simulado:p1:c0",
+            "manual_simulado:p2:c0",
+            "manual_simulado:p11:c0",
+            "manual_simulado:p6:c0",
+            "manual_simulado:p5:c0",
+            "manual_simulado:p3:c0",
+            "manual_simulado:p1:c1",
+            "manual_simulado:p15:c1"
+          ],
+          "usage": {
+            "llm_calls": 2,
+            "embed_calls": 1,
+            "prompt_tokens": 4966,
+            "completion_tokens": 112,
+            "cost_usd": 0.000498765,
+            "latency_s": 6.680807127151638,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "simples",
+                "confianca": 0.77
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "search_keyword",
+              "args": {
+                "query": "Nébula Logística fundada sede",
+                "k": 5
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p1:c0\", \"page\": 1, \"section\": \"1.1 Sobre a empresa\", \"score\": 7.12, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 1 de 16\\nManual de Operaçõe…"
+            },
+            {
+              "step": 1,
+              "tool": "search_semantic",
+              "args": {
+                "query": "ano de fundação da Nébula Logística e cidade onde está localizada a sede",
+                "k": 5
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p1:c0\", \"page\": 1, \"section\": \"1.1 Sobre a empresa\", \"score\": 0.703, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 1 de 16\\nManual de Operaçõ…"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Informa o ano de fundação (2009) e a sede em Curitiba (PR), conforme a referência."
         }
       }
     },
@@ -280,7 +439,8 @@
             "prompt_tokens": 962,
             "completion_tokens": 20,
             "cost_usd": 0.00010559999999999999,
-            "latency_s": 3.0909890420734882
+            "latency_s": 7.93782416684553,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -300,25 +460,26 @@
             "manual_simulado:p8:c1",
             "manual_simulado:p3:c2",
             "manual_simulado:p8:c2",
-            "manual_simulado:p10:c0"
+            "manual_simulado:p7:c1"
           ],
           "usage": {
             "llm_calls": 2,
             "embed_calls": 1,
-            "prompt_tokens": 3745,
-            "completion_tokens": 66,
-            "cost_usd": 0.00018237,
-            "latency_s": 5.334917791187763
+            "prompt_tokens": 3723,
+            "completion_tokens": 67,
+            "cost_usd": 0.00018005499999999998,
+            "latency_s": 4.500308125279844,
+            "decider_calls": 0
           },
           "trace": [
             {
               "step": 1,
               "tool": "search_semantic",
               "args": {
-                "query": "jornada padrão semanal dos colaboradores quantas horas por semana",
+                "query": "jornada padrão semanal de trabalho dos colaboradores, horas por semana",
                 "k": 5
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p8:c0\", \"page\": 8, \"section\": \"5.2 Férias e afastamentos\", \"score\": 0.667, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 8 de 16\\n5 Pessoas e…"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p8:c0\", \"page\": 8, \"section\": \"5.2 Férias e afastamentos\", \"score\": 0.743, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 8 de 16\\n5 Pessoas e…"
             }
           ]
         },
@@ -328,6 +489,45 @@
           "missing": [],
           "judge": true,
           "reason": "Informa corretamente que a jornada padrão é de 44 horas semanais; o detalhe adicional não contradiz a referência."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "A jornada padrão é de 44 horas por semana [p. 8].",
+          "sources": [
+            "manual_simulado:p8:c0",
+            "manual_simulado:p8:c1",
+            "manual_simulado:p3:c2",
+            "manual_simulado:p8:c2",
+            "manual_simulado:p10:c0"
+          ],
+          "usage": {
+            "llm_calls": 1,
+            "embed_calls": 1,
+            "prompt_tokens": 962,
+            "completion_tokens": 20,
+            "cost_usd": 0.00012806999999999999,
+            "latency_s": 3.915057375561446,
+            "decider_calls": 1
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "simples",
+                "confianca": 1.0
+              },
+              "result_preview": "RAG simples"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Informa corretamente que a jornada padrão é de 44 horas semanais."
         }
       }
     },
@@ -341,7 +541,7 @@
       ],
       "simple": {
         "answer": {
-          "text": "A unidade de Campinas, gerenciada por Rafael Bittencourt Lins, tem orçamento operacional de **R$ 4.870.000** em 2025 [p. 3] [p. 13].",
+          "text": "O orçamento operacional de 2025 da unidade gerenciada por Rafael Bittencourt Lins, o CD Campinas, é de R$ 4.870.000 [p. 3; p. 13].",
           "sources": [
             "manual_simulado:p13:c0",
             "manual_simulado:p13:c1",
@@ -353,9 +553,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1283,
-            "completion_tokens": 75,
-            "cost_usd": 0.00019591499999999998,
-            "latency_s": 3.4138353765010834
+            "completion_tokens": 80,
+            "cost_usd": 0.000198415,
+            "latency_s": 7.886197958141565,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -364,36 +565,37 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Informa o orçamento operacional de 2025 como R$ 4.870.000 para a unidade de Campinas gerenciada por Rafael Bittencourt Lins."
+          "reason": "Identifica a unidade como CD Campinas e informa o orçamento de 2025 de R$ 4.870.000, conforme a referência."
         }
       },
       "agentic": {
         "answer": {
-          "text": "A unidade gerenciada por Rafael Bittencourt Lins é o CD Campinas [p. 3]. Seu orçamento operacional de 2025 é de **R$ 4.870.000** [p. 13].",
+          "text": "Rafael Bittencourt Lins gerencia a unidade de Campinas [p. 3], cujo orçamento operacional de 2025 é **R$ 4.870.000** [p. 13].",
           "sources": [
             "manual_simulado:p13:c0",
             "manual_simulado:p13:c1",
             "manual_simulado:p3:c1",
-            "manual_simulado:p2:c2",
-            "manual_simulado:p3:c2"
+            "manual_simulado:p3:c2",
+            "manual_simulado:p2:c1"
           ],
           "usage": {
             "llm_calls": 2,
             "embed_calls": 1,
-            "prompt_tokens": 3880,
-            "completion_tokens": 128,
-            "cost_usd": 0.00022844500000000003,
-            "latency_s": 5.226099458057433
+            "prompt_tokens": 3917,
+            "completion_tokens": 123,
+            "cost_usd": 0.000230635,
+            "latency_s": 5.199132999870926,
+            "decider_calls": 0
           },
           "trace": [
             {
               "step": 1,
               "tool": "search_semantic",
               "args": {
-                "query": "orçamento operacional de 2025 da unidade gerenciada por Rafael Bittencourt Lins",
+                "query": "unidade gerenciada por Rafael Bittencourt Lins orçamento operacional de 2025",
                 "k": 5
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p13:c0\", \"page\": 13, \"section\": \"9.1 Orçamento operacional por unidade\", \"score\": 0.593, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 13 de …"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p13:c0\", \"page\": 13, \"section\": \"9.1 Orçamento operacional por unidade\", \"score\": 0.599, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 13 de …"
             }
           ]
         },
@@ -402,7 +604,69 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Identifica o CD Campinas e informa o orçamento operacional de 2025 de R$ 4.870.000."
+          "reason": "Identifica a unidade como Campinas e informa o orçamento operacional de 2025 de R$ 4.870.000, conforme a referência."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "A unidade gerenciada por Rafael Bittencourt Lins é o CD Campinas [p. 3]. Seu orçamento operacional de 2025 é de **R$ 4.870.000** [p. 13].",
+          "sources": [
+            "manual_simulado:p3:c1",
+            "manual_simulado:p13:c0",
+            "manual_simulado:p13:c1",
+            "manual_simulado:p3:c0",
+            "manual_simulado:p4:c1",
+            "manual_simulado:p2:c2",
+            "manual_simulado:p4:c0",
+            "manual_simulado:p9:c2",
+            "manual_simulado:p6:c2",
+            "manual_simulado:p6:c1"
+          ],
+          "usage": {
+            "llm_calls": 3,
+            "embed_calls": 1,
+            "prompt_tokens": 6095,
+            "completion_tokens": 140,
+            "cost_usd": 0.0005852440000000001,
+            "latency_s": 11.801186000462621,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "multi_hop",
+                "confianca": 0.99
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "search_keyword",
+              "args": {
+                "query": "Rafael Bittencourt Lins",
+                "k": 10
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p3:c1\", \"page\": 3, \"section\": \"3.2 Gestão das unidades\", \"score\": 9.52, \"text\": \"Cada centro de distribuição tem um gerente de unidade, responsável por pessoas, seguran…"
+            },
+            {
+              "step": 2,
+              "tool": "search_semantic",
+              "args": {
+                "query": "orçamento operacional previsto para o ano de 2025 da unidade de Campinas",
+                "k": 10
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p13:c0\", \"page\": 13, \"section\": \"9.1 Orçamento operacional por unidade\", \"score\": 0.641, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 13 de …"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Identifica o CD Campinas como a unidade e informa o orçamento operacional de 2025 de R$ 4.870.000."
         }
       }
     },
@@ -428,9 +692,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1142,
-            "completion_tokens": 52,
-            "cost_usd": 0.00016692,
-            "latency_s": 4.957585082855076
+            "completion_tokens": 60,
+            "cost_usd": 0.00017092,
+            "latency_s": 7.44080924987793,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -441,38 +706,43 @@
             "Mariana Teixeira Lopes"
           ],
           "judge": false,
-          "reason": "faltam termos ['Mariana Teixeira Lopes']; juiz: A resposta omite o nome do gerente responsável, que é Mariana Teixeira Lopes."
+          "reason": "faltam termos ['Mariana Teixeira Lopes']; juiz: A resposta não identifica a gerente responsável. A unidade era o CD de Joinville, gerido por Mariana Teixeira Lopes."
         }
       },
       "agentic": {
         "answer": {
-          "text": "O vazamento ocorreu na unidade NB-CD-04, em Joinville [p. 6]. O gerente responsável por essa unidade é Mariana Teixeira Lopes [p. 3].",
+          "text": "O vazamento ocorreu na unidade NB-CD-04, em Joinville. A gerente responsável pela unidade é Mariana Teixeira Lopes [pp. 3, 6].",
           "sources": [
             "manual_simulado:p6:c1",
             "manual_simulado:p6:c2",
-            "manual_simulado:p3:c1",
+            "manual_simulado:p14:c1",
             "manual_simulado:p12:c1",
+            "manual_simulado:p3:c1",
             "manual_simulado:p13:c1",
             "manual_simulado:p3:c0",
-            "manual_simulado:p13:c0"
+            "manual_simulado:p13:c0",
+            "manual_simulado:p5:c1",
+            "manual_simulado:p6:c0",
+            "manual_simulado:p5:c2"
           ],
           "usage": {
             "llm_calls": 3,
             "embed_calls": 1,
-            "prompt_tokens": 7024,
-            "completion_tokens": 162,
-            "cost_usd": 0.000362365,
-            "latency_s": 8.298749042209238
+            "prompt_tokens": 7248,
+            "completion_tokens": 160,
+            "cost_usd": 0.00037647000000000006,
+            "latency_s": 7.9588703331537545,
+            "decider_calls": 0
           },
           "trace": [
             {
               "step": 1,
               "tool": "search_semantic",
               "args": {
-                "query": "vazamento de amônia em 2025 gerente responsável unidade",
-                "k": 5
+                "query": "vazamento de amônia em 2025 unidade gerente responsável pelo local",
+                "k": 10
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p6:c1\", \"page\": 6, \"section\": \"4.3 Ocorrências relevantes de 2025\", \"score\": 0.669, \"text\": \"e Segurança do Trabalho em até duas horas após o conhecimento do fato. Um c…"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p6:c1\", \"page\": 6, \"section\": \"4.3 Ocorrências relevantes de 2025\", \"score\": 0.681, \"text\": \"e Segurança do Trabalho em até duas horas após o conhecimento do fato. Um c…"
             },
             {
               "step": 2,
@@ -490,7 +760,87 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Identifica a unidade NB-CD-04, em Joinville, e a gerente responsável como Mariana Teixeira Lopes."
+          "reason": "Identifica NB-CD-04 como a unidade de Joinville e Mariana Teixeira Lopes como a gerente responsável."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "O vazamento ocorreu na unidade NB-CD-04, em Joinville, cujo gerente responsável é Mariana Teixeira Lopes [p. 3; p. 6].",
+          "sources": [
+            "manual_simulado:p6:c1",
+            "manual_simulado:p6:c2",
+            "manual_simulado:p5:c2",
+            "manual_simulado:p5:c1",
+            "manual_simulado:p6:c0",
+            "manual_simulado:p12:c1",
+            "manual_simulado:p3:c0",
+            "manual_simulado:p13:c0",
+            "manual_simulado:p3:c1",
+            "manual_simulado:p3:c2",
+            "manual_simulado:p2:c1",
+            "manual_simulado:p8:c2",
+            "manual_simulado:p13:c1",
+            "manual_simulado:p16:c1",
+            "manual_simulado:p12:c2",
+            "manual_simulado:p2:c0",
+            "manual_simulado:p2:c2",
+            "manual_simulado:p4:c0",
+            "manual_simulado:p1:c2"
+          ],
+          "usage": {
+            "llm_calls": 3,
+            "embed_calls": 2,
+            "prompt_tokens": 8628,
+            "completion_tokens": 183,
+            "cost_usd": 0.000739356,
+            "latency_s": 11.847142499871552,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "multi_hop",
+                "confianca": 0.51
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "search_semantic",
+              "args": {
+                "query": "vazamento de amônia em 2025, ocorrência ou incidente, unidade onde aconteceu, gerente responsável",
+                "k": 10
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p6:c1\", \"page\": 6, \"section\": \"4.3 Ocorrências relevantes de 2025\", \"score\": 0.726, \"text\": \"e Segurança do Trabalho em até duas horas após o conhecimento do fato. Um c…"
+            },
+            {
+              "step": 2,
+              "tool": "search_keyword",
+              "args": {
+                "query": "NB-CD-04",
+                "k": 10
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p3:c0\", \"page\": 3, \"section\": \"3.2 Gestão das unidades\", \"score\": 14.87, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 3 de 16\\n3 Rede de Cen…"
+            },
+            {
+              "step": 2,
+              "tool": "search_semantic",
+              "args": {
+                "query": "cadastro das unidades com nomes de seus gerentes responsáveis, gerente da unidade NB-CD-04",
+                "k": 10
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p3:c1\", \"page\": 3, \"section\": \"3.2 Gestão das unidades\", \"score\": 0.648, \"text\": \"Cada centro de distribuição tem um gerente de unidade, responsável por pessoas, segura…"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Identifica corretamente a unidade como NB-CD-04, em Joinville, e a gerente responsável como Mariana Teixeira Lopes."
         }
       }
     },
@@ -505,7 +855,7 @@
       ],
       "simple": {
         "answer": {
-          "text": "A homologação é conduzida por Suprimentos Estratégicos, chefiada por Otávio Ramalho Prates, ramal 3528 [p. 2, 11].",
+          "text": "A homologação é conduzida por Suprimentos Estratégicos, chefiada por Otávio Ramalho Prates, ramal 3528 [p. 11; p. 2].",
           "sources": [
             "manual_simulado:p2:c1",
             "manual_simulado:p11:c0",
@@ -517,9 +867,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1149,
-            "completion_tokens": 91,
-            "cost_usd": 0.000187295,
-            "latency_s": 4.010719125159085
+            "completion_tokens": 98,
+            "cost_usd": 0.000190795,
+            "latency_s": 3.4447732497937977,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -533,31 +884,43 @@
       },
       "agentic": {
         "answer": {
-          "text": "A homologação de fornecedores é conduzida por Suprimentos Estratégicos [p. 11], chefiada por Otávio Ramalho Prates. O ramal dele é 3528 [p. 2].",
+          "text": "A homologação é conduzida por Suprimentos Estratégicos, chefiada por Otávio Ramalho Prates. O ramal dele é 3528 [p. 2, p. 11].",
           "sources": [
             "manual_simulado:p2:c1",
             "manual_simulado:p11:c0",
             "manual_simulado:p3:c1",
             "manual_simulado:p3:c2",
-            "manual_simulado:p1:c1"
+            "manual_simulado:p1:c1",
+            "manual_simulado:p2:c0",
+            "manual_simulado:p2:c2"
           ],
           "usage": {
-            "llm_calls": 2,
+            "llm_calls": 3,
             "embed_calls": 1,
-            "prompt_tokens": 3847,
-            "completion_tokens": 143,
-            "cost_usd": 0.00023182,
-            "latency_s": 5.126276833936572
+            "prompt_tokens": 6724,
+            "completion_tokens": 177,
+            "cost_usd": 0.00033182000000000003,
+            "latency_s": 8.790505125187337,
+            "decider_calls": 0
           },
           "trace": [
             {
               "step": 1,
               "tool": "search_semantic",
               "args": {
-                "query": "área responsável por homologação de fornecedores, seu chefe ou gestor e ramal telefônico",
+                "query": "homologação de fornecedores área responsável chefia ramal telefone",
                 "k": 5
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p2:c1\", \"page\": 2, \"section\": \"2.3 Alçadas de aprovação\", \"score\": 0.685, \"text\": \"investimentos e metas.\\nOs centros de distribuição respondem diretamente à Diretoria …"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p2:c1\", \"page\": 2, \"section\": \"2.3 Alçadas de aprovação\", \"score\": 0.703, \"text\": \"investimentos e metas.\\nOs centros de distribuição respondem diretamente à Diretoria …"
+            },
+            {
+              "step": 2,
+              "tool": "read_page",
+              "args": {
+                "doc_id": "manual_simulado",
+                "page": 2
+              },
+              "result_preview": "[manual_simulado — página 2] Nébula Logística S.A. — Manual de Operações e Políticas Página 2 de 16 2 Estrutura Organizacional 2.1 Diretoria A Nébula é administrada por uma Diretoria Executiva compost…"
             }
           ]
         },
@@ -566,7 +929,58 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Identifica corretamente Suprimentos Estratégicos, Otávio Ramalho Prates e o ramal 3528."
+          "reason": "Identifica Suprimentos Estratégicos, Otávio Ramalho Prates e o ramal 3528, conforme a referência."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "A homologação de fornecedores é conduzida por Suprimentos Estratégicos [p. 11]. A área é chefiada por Otávio Ramalho Prates, cujo ramal é 3528 [p. 2].",
+          "sources": [
+            "manual_simulado:p2:c1",
+            "manual_simulado:p3:c1",
+            "manual_simulado:p11:c0",
+            "manual_simulado:p3:c2",
+            "manual_simulado:p1:c1",
+            "manual_simulado:p2:c2",
+            "manual_simulado:p1:c2",
+            "manual_simulado:p3:c0"
+          ],
+          "usage": {
+            "llm_calls": 2,
+            "embed_calls": 1,
+            "prompt_tokens": 4032,
+            "completion_tokens": 176,
+            "cost_usd": 0.000361119,
+            "latency_s": 9.96319462545216,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "multi_hop",
+                "confianca": 0.46
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "search_semantic",
+              "args": {
+                "query": "área responsável ou que conduz a homologação de fornecedores; chefia da área e ramal telefônico da pessoa",
+                "k": 8
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p2:c1\", \"page\": 2, \"section\": \"2.3 Alçadas de aprovação\", \"score\": 0.706, \"text\": \"investimentos e metas.\\nOs centros de distribuição respondem diretamente à Diretoria …"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Identifica corretamente a área, o responsável e o ramal conforme a referência."
         }
       }
     },
@@ -592,9 +1006,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1230,
-            "completion_tokens": 51,
-            "cost_usd": 0.00017794,
-            "latency_s": 3.392424875870347
+            "completion_tokens": 58,
+            "cost_usd": 0.00018144,
+            "latency_s": 3.658907708246261,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -603,12 +1018,12 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Informa a capacidade nominal de 2,7 t, conforme a referência."
+          "reason": "Informa corretamente a capacidade nominal de 2,7 t."
         }
       },
       "agentic": {
         "answer": {
-          "text": "A capacidade nominal de carga do equipamento ACX-7741 é de **2,7 t** [p. 14].",
+          "text": "A capacidade nominal de carga do equipamento ACX-7741 é **2,7 t** [p. 14].",
           "sources": [
             "manual_simulado:p14:c1",
             "manual_simulado:p7:c0"
@@ -617,9 +1032,10 @@
             "llm_calls": 2,
             "embed_calls": 0,
             "prompt_tokens": 3289,
-            "completion_tokens": 56,
-            "cost_usd": 0.00012100000000000001,
-            "latency_s": 3.2809208747930825
+            "completion_tokens": 55,
+            "cost_usd": 0.0001205,
+            "latency_s": 3.9872356257401407,
+            "decider_calls": 0
           },
           "trace": [
             {
@@ -640,6 +1056,51 @@
           "judge": true,
           "reason": "Informa a capacidade nominal de 2,7 t, conforme a referência."
         }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "A capacidade nominal de carga do equipamento ACX-7741 é de **2,7 t** [p. 14].",
+          "sources": [
+            "manual_simulado:p14:c1",
+            "manual_simulado:p7:c0"
+          ],
+          "usage": {
+            "llm_calls": 2,
+            "embed_calls": 0,
+            "prompt_tokens": 3289,
+            "completion_tokens": 56,
+            "cost_usd": 0.00012699199999999998,
+            "latency_s": 7.0810140003450215,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "simples",
+                "confianca": 0.64
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "search_keyword",
+              "args": {
+                "query": "ACX-7741",
+                "k": 5
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p14:c1\", \"page\": 14, \"section\": \"10.3 Descarte de resíduos\", \"score\": 9.88, \"text\": \"envolvidas.\\n10.2 Manutenção de equipamentos\\nA manutenção preventiva dos equipamen…"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Informa corretamente que a capacidade nominal do ACX-7741 é de 2,7 t."
+        }
       }
     },
     {
@@ -653,7 +1114,7 @@
       ],
       "simple": {
         "answer": {
-          "text": "O PRT-0093 estabelece o procedimento para cargas recebidas com lacre rompido, divergente da nota fiscal ou com sinais de violação: segregá-las em quarentena, fotografá-las e mantê-las intactas por até 72 horas, aguardando vistoria do cliente e da seguradora [p. 12].",
+          "text": "O PRT-0093 se refere ao procedimento para cargas recebidas com lacre rompido, divergente da nota fiscal ou com sinais de violação: elas são segregadas em quarentena, fotografadas e mantidas intactas por até 72 horas, aguardando vistoria do cliente e da seguradora [p. 12].",
           "sources": [
             "manual_simulado:p12:c2",
             "manual_simulado:p8:c1",
@@ -665,9 +1126,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 998,
-            "completion_tokens": 130,
-            "cost_usd": 0.00016428,
-            "latency_s": 4.989439290948212
+            "completion_tokens": 122,
+            "cost_usd": 0.00016028,
+            "latency_s": 5.6437010006047785,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -676,12 +1138,12 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Identifica o procedimento para cargas com lacre violado e inclui a quarentena por até 72 horas aguardando vistoria do cliente e da seguradora."
+          "reason": "Identifica o procedimento para cargas com lacre violado e inclui a quarentena por até 72 horas aguardando vistoria do cliente e da seguradora. Os detalhes adicionais não contradizem a referência."
         }
       },
       "agentic": {
         "answer": {
-          "text": "O PRT-0093 refere-se ao procedimento para cargas recebidas com lacre rompido, divergente da nota fiscal ou com sinais de violação: a carga é segregada em quarentena, fotografada e mantida intacta por até 72 horas, aguardando vistoria do cliente e da seguradora [p. 12].",
+          "text": "O PRT-0093 refere-se ao procedimento para cargas recebidas com lacre rompido, divergente da nota fiscal ou com sinais de violação. A carga é segregada em quarentena, fotografada e mantida intacta por até 72 horas, aguardando vistoria do cliente e da seguradora [p. 12].",
           "sources": [
             "manual_simulado:p12:c2",
             "manual_simulado:p14:c0"
@@ -692,7 +1154,8 @@
             "prompt_tokens": 3287,
             "completion_tokens": 100,
             "cost_usd": 0.00014321,
-            "latency_s": 3.9420565837062895
+            "latency_s": 5.914675084408373,
+            "decider_calls": 0
           },
           "trace": [
             {
@@ -711,7 +1174,52 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Identifica o procedimento para cargas com lacre violado e informa a quarentena por até 72 horas, aguardando vistoria do cliente e da seguradora."
+          "reason": "A resposta identifica o procedimento para cargas com lacre violado e mantém os pontos essenciais: quarentena por até 72 horas aguardando vistoria do cliente e da seguradora."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "O PRT-0093 refere-se ao procedimento para cargas recebidas com lacre rompido, divergente da nota fiscal ou com sinais de violação. Elas devem ser segregadas em quarentena, fotografadas e mantidas intactas por até 72 horas, aguardando vistoria do cliente e da seguradora [p. 12].",
+          "sources": [
+            "manual_simulado:p12:c2",
+            "manual_simulado:p14:c0"
+          ],
+          "usage": {
+            "llm_calls": 2,
+            "embed_calls": 0,
+            "prompt_tokens": 3357,
+            "completion_tokens": 100,
+            "cost_usd": 0.00037420600000000003,
+            "latency_s": 5.2811082089319825,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "codigo_exato",
+                "confianca": 0.99
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "search_keyword",
+              "args": {
+                "query": "PRT-0093",
+                "k": 10
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p12:c2\", \"page\": 12, \"section\": \"8.3 Cargas com lacre violado\", \"score\": 8.92, \"text\": \"conforme o Anexo C-3, a perda máxima aceitável por avaria em manuseio, por unida…"
+            }
+          ]
+        },
+        "grade": {
+          "correct": false,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": false,
+          "reason": "A resposta omite que a carga deve ficar especificamente na doca de retenção."
         }
       }
     },
@@ -725,7 +1233,7 @@
       ],
       "simple": {
         "answer": {
-          "text": "A tolerância de avaria no manuseio é de 0,8% do volume movimentado por unidade e por mês [p. 12].",
+          "text": "A tolerância máxima é de 0,8% do volume movimentado por unidade e por mês [p. 12].",
           "sources": [
             "manual_simulado:p16:c1",
             "manual_simulado:p16:c0",
@@ -737,9 +1245,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1122,
-            "completion_tokens": 36,
-            "cost_usd": 0.00015713499999999998,
-            "latency_s": 2.5771231674589217
+            "completion_tokens": 30,
+            "cost_usd": 0.000154135,
+            "latency_s": 4.229730166029185,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -748,12 +1257,12 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Informa a tolerância de 0,8% do volume movimentado por unidade e por mês, conforme a referência."
+          "reason": "Informa corretamente a tolerância de 0,8% do volume movimentado por unidade e por mês."
         }
       },
       "agentic": {
         "answer": {
-          "text": "A tolerância definida no Anexo C-3 é de **0,8% do volume movimentado por unidade e por mês** [p. 12].",
+          "text": "A tolerância máxima é de **0,8% do volume movimentado por unidade e por mês** [p. 12].",
           "sources": [
             "manual_simulado:p16:c1",
             "manual_simulado:p16:c0",
@@ -765,9 +1274,10 @@
             "llm_calls": 2,
             "embed_calls": 0,
             "prompt_tokens": 3903,
-            "completion_tokens": 63,
-            "cost_usd": 0.00020136499999999998,
-            "latency_s": 3.677954957820475
+            "completion_tokens": 57,
+            "cost_usd": 0.000198365,
+            "latency_s": 5.053224875126034,
+            "decider_calls": 0
           },
           "trace": [
             {
@@ -778,6 +1288,70 @@
                 "k": 5
               },
               "result_preview": "[ {\"chunk_id\": \"manual_simulado:p16:c1\", \"page\": 16, \"section\": \"14 Anexos\", \"score\": 10.27, \"text\": \"contadas.\\nAnexo C-3 — Tolerância de avaria no manuseio. Limite mensal de perdas por avaria em man…"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Informa a tolerância de 0,8% do volume movimentado por unidade e por mês, conforme a referência."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "A tolerância definida no Anexo C-3 é de **0,8% do volume movimentado por unidade, por mês**. Acima desse limite, a unidade deve apresentar um plano de ação à Diretoria de Operações [p. 12].",
+          "sources": [
+            "manual_simulado:p16:c0",
+            "manual_simulado:p16:c1",
+            "manual_simulado:p12:c0",
+            "manual_simulado:p12:c1",
+            "manual_simulado:p12:c2",
+            "manual_simulado:p12:c3"
+          ],
+          "usage": {
+            "llm_calls": 4,
+            "embed_calls": 0,
+            "prompt_tokens": 9923,
+            "completion_tokens": 137,
+            "cost_usd": 0.000681408,
+            "latency_s": 12.37572200037539,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "referencia_secao",
+                "confianca": 0.68
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "list_outline",
+              "args": {},
+              "result_preview": "manual_simulado p. 1: 1 Apresentação manual_simulado p. 1: 1.1 Sobre a empresa manual_simulado p. 1: 1.2 Objetivo e abrangência manual_simulado p. 1: 1.3 Como usar este manual manual_simulado p. 2: 2 …"
+            },
+            {
+              "step": 2,
+              "tool": "read_page",
+              "args": {
+                "doc_id": "manual_simulado",
+                "page": 16
+              },
+              "result_preview": "[manual_simulado — página 16] Nébula Logística S.A. — Manual de Operações e Políticas Página 16 de 16 13 Disposições Finais 13.1 Revisão do manual Este manual é revisado anualmente pela Diretoria Exec…"
+            },
+            {
+              "step": 3,
+              "tool": "read_page",
+              "args": {
+                "doc_id": "manual_simulado",
+                "page": 12
+              },
+              "result_preview": "[manual_simulado — página 12] Nébula Logística S.A. — Manual de Operações e Políticas Página 12 de 16 8 Cadeia Fria 8.1 Faixas de temperatura Produtos refrigerados devem ser mantidos entre 2 °C e 8 °C…"
             }
           ]
         },
@@ -812,9 +1386,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1053,
-            "completion_tokens": 90,
-            "cost_usd": 0.00014922,
-            "latency_s": 4.759720623958856
+            "completion_tokens": 86,
+            "cost_usd": 0.00014722,
+            "latency_s": 4.301875665783882,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -825,12 +1400,12 @@
             "12"
           ],
           "judge": false,
-          "reason": "faltam termos ['12']; juiz: A resposta de referência informa um total de 12 incidentes classe 3 em 2024; a resposta não fornece esse total."
+          "reason": "faltam termos ['12']; juiz: A resposta não informa o total de 12 incidentes classe 3 registrados em 2024."
         }
       },
       "agentic": {
         "answer": {
-          "text": "Foram registrados **11 incidentes classe 3** em 2024 no total: 2 na Região Sul, 4 na Região Sudeste, 3 na armazenagem e 2 na operação regional do Nordeste [p. 4, 14, 15].",
+          "text": "Foram registrados **12 incidentes classe 3** em 2024, somando todas as áreas: Sul (2), Sudeste (4), cadeia fria (1), armazenagem (3) e Nordeste (2) [p. 4, 12, 14, 15].",
           "sources": [
             "manual_simulado:p5:c2",
             "manual_simulado:p6:c2",
@@ -838,34 +1413,147 @@
             "manual_simulado:p4:c2",
             "manual_simulado:p5:c1",
             "manual_simulado:p6:c0",
+            "manual_simulado:p12:c2",
             "manual_simulado:p14:c0",
             "manual_simulado:p15:c1",
-            "manual_simulado:p12:c2",
             "manual_simulado:p6:c1",
             "manual_simulado:p16:c1",
+            "manual_simulado:p13:c0",
+            "manual_simulado:p14:c1",
+            "manual_simulado:p1:c2",
+            "manual_simulado:p10:c0",
             "manual_simulado:p4:c0",
-            "manual_simulado:p13:c0"
+            "manual_simulado:p3:c0",
+            "manual_simulado:p8:c2",
+            "manual_simulado:p8:c1",
+            "manual_simulado:p5:c0"
           ],
           "usage": {
-            "llm_calls": 6,
+            "llm_calls": 4,
             "embed_calls": 1,
-            "prompt_tokens": 20301,
-            "completion_tokens": 311,
-            "cost_usd": 0.0007320050000000001,
-            "latency_s": 15.844943083357066
+            "prompt_tokens": 12366,
+            "completion_tokens": 254,
+            "cost_usd": 0.000580965,
+            "latency_s": 10.374172791372985,
+            "decider_calls": 0
           },
           "trace": [
             {
               "step": 1,
               "tool": "search_semantic",
               "args": {
-                "query": "incidentes classe 3 registrados em 2024 por área da empresa total anual",
+                "query": "incidentes classe 3 registrados em 2024 por área da empresa total",
                 "k": 10
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p5:c2\", \"page\": 5, \"section\": \"4.1 Classificação de incidentes\", \"score\": 0.682, \"text\": \"Classe 2 — ocorrência moderada, com afastamento de até quinze dias,\\nperda par…"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p5:c2\", \"page\": 5, \"section\": \"4.1 Classificação de incidentes\", \"score\": 0.677, \"text\": \"Classe 2 — ocorrência moderada, com afastamento de até quinze dias,\\nperda par…"
             },
             {
               "step": 2,
+              "tool": "grep",
+              "args": {
+                "pattern": "2024.{0,100}(incidente|incidentes).{0,80}classe 3"
+              },
+              "result_preview": "4 ocorrência(s) de /2024.{0,100}(incidente|incidentes).{0,80}classe 3/: [ {\"chunk_id\": \"manual_simulado:p4:c1\", \"page\": 4, \"section\": \"3.4 Frota própria — Região Sudeste\", \"text\": \"…anutenção preventi…"
+            },
+            {
+              "step": 2,
+              "tool": "search_keyword",
+              "args": {
+                "query": "2024 incidentes classe 3",
+                "k": 20
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p6:c0\", \"page\": 6, \"section\": \"4.2 Resposta a incidentes\", \"score\": 5.98, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 6 de 16\\n4.2 Resposta…"
+            },
+            {
+              "step": 3,
+              "tool": "calculator",
+              "args": {
+                "expression": "2 + 4 + 1 + 3 + 2"
+              },
+              "result_preview": "2 + 4 + 1 + 3 + 2 = 12"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Informa o total de 12 incidentes e as quantidades por área conforme a referência."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "Foram registrados **12 incidentes classe 3** em 2024, somando todas as áreas: frota Sul (2), frota Sudeste (4), cadeia fria (1), armazenagem (3) e operação regional do Nordeste (2) [pp. 4, 12, 14, 15].",
+          "sources": [
+            "manual_simulado:p5:c2",
+            "manual_simulado:p5:c1",
+            "manual_simulado:p6:c2",
+            "manual_simulado:p6:c0",
+            "manual_simulado:p4:c1",
+            "manual_simulado:p4:c2",
+            "manual_simulado:p1:c2",
+            "manual_simulado:p10:c0",
+            "manual_simulado:p12:c2",
+            "manual_simulado:p13:c0",
+            "manual_simulado:p14:c0",
+            "manual_simulado:p14:c1",
+            "manual_simulado:p15:c1",
+            "manual_simulado:p6:c1",
+            "manual_simulado:p16:c1",
+            "manual_simulado:p4:c0",
+            "manual_simulado:p12:c0",
+            "manual_simulado:p12:c1",
+            "manual_simulado:p12:c3",
+            "manual_simulado:p14:c2",
+            "manual_simulado:p15:c0"
+          ],
+          "usage": {
+            "llm_calls": 6,
+            "embed_calls": 1,
+            "prompt_tokens": 22565,
+            "completion_tokens": 482,
+            "cost_usd": 0.0011563979999999999,
+            "latency_s": 16.437883040867746,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "agregacao",
+                "confianca": 1.0
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "search_semantic",
+              "args": {
+                "query": "incidentes classe 3 registrados em 2024 por todas as áreas da empresa, totais por área",
+                "k": 10
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p5:c2\", \"page\": 5, \"section\": \"4.1 Classificação de incidentes\", \"score\": 0.712, \"text\": \"Classe 2 — ocorrência moderada, com afastamento de até quinze dias,\\nperda par…"
+            },
+            {
+              "step": 2,
+              "tool": "grep",
+              "args": {
+                "pattern": "2024"
+              },
+              "result_preview": "10 ocorrência(s) de /2024/: [ {\"chunk_id\": \"manual_simulado:p1:c2\", \"page\": 1, \"section\": \"1.3 Como usar este manual\", \"text\": \"…ações da Nébula. Ele substitui as circulares avulsas publicadas até dez…"
+            },
+            {
+              "step": 3,
+              "tool": "grep",
+              "args": {
+                "pattern": "incidentes classe 3"
+              },
+              "result_preview": "4 ocorrência(s) de /incidentes classe 3/: [ {\"chunk_id\": \"manual_simulado:p4:c1\", \"page\": 4, \"section\": \"3.4 Frota própria — Região Sudeste\", \"text\": \"…cina credenciada. No ano de 2024, a operação de …"
+            },
+            {
+              "step": 4,
               "tool": "read_page",
               "args": {
                 "doc_id": "manual_simulado",
@@ -874,40 +1562,48 @@
               "result_preview": "[manual_simulado — página 4] Nébula Logística S.A. — Manual de Operações e Políticas Página 4 de 16 3.3 Frota própria — Região Sul A frota própria da Região Sul atende as unidades de Curitiba, Joinvil…"
             },
             {
-              "step": 3,
-              "tool": "search_keyword",
+              "step": 4,
+              "tool": "read_page",
               "args": {
-                "query": "2024 incidentes classe 3",
-                "k": 10
+                "doc_id": "manual_simulado",
+                "page": 12
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p6:c0\", \"page\": 6, \"section\": \"4.2 Resposta a incidentes\", \"score\": 5.98, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 6 de 16\\n4.2 Resposta…"
+              "result_preview": "[manual_simulado — página 12] Nébula Logística S.A. — Manual de Operações e Políticas Página 12 de 16 8 Cadeia Fria 8.1 Faixas de temperatura Produtos refrigerados devem ser mantidos entre 2 °C e 8 °C…"
             },
             {
               "step": 4,
-              "tool": "grep",
+              "tool": "read_page",
               "args": {
-                "pattern": "incidentes classe 3"
+                "doc_id": "manual_simulado",
+                "page": 14
               },
-              "result_preview": "4 ocorrência(s) de /incidentes classe 3/: [ {\"chunk_id\": \"manual_simulado:p4:c1\", \"page\": 4, \"section\": \"3.4 Frota própria — Região Sudeste\", \"text\": \"…cina credenciada. No ano de 2024, a operação de …"
+              "result_preview": "[manual_simulado — página 14] Nébula Logística S.A. — Manual de Operações e Políticas Página 14 de 16 10 Armazenagem e Inventário 10.1 Inventário e devoluções Todas as unidades realizam contagem cícli…"
+            },
+            {
+              "step": 4,
+              "tool": "read_page",
+              "args": {
+                "doc_id": "manual_simulado",
+                "page": 15
+              },
+              "result_preview": "[manual_simulado — página 15] Nébula Logística S.A. — Manual de Operações e Políticas Página 15 de 16 11 Conformidade Fiscal e Documental 11.1 Documentos de transporte Nenhum veículo pode sair de um c…"
             },
             {
               "step": 5,
               "tool": "calculator",
               "args": {
-                "expression": "2+4+3+2"
+                "expression": "2 + 4 + 1 + 3 + 2"
               },
-              "result_preview": "2+4+3+2 = 11"
+              "result_preview": "2 + 4 + 1 + 3 + 2 = 12"
             }
           ]
         },
         "grade": {
-          "correct": false,
-          "must_contain_ok": false,
-          "missing": [
-            "12"
-          ],
-          "judge": false,
-          "reason": "faltam termos ['12']; juiz: O total correto é 12; a resposta omite 1 incidente da cadeia fria."
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Informa o total de 12 incidentes e reproduz corretamente as quantidades de cada área."
         }
       }
     },
@@ -924,7 +1620,7 @@
       ],
       "simple": {
         "answer": {
-          "text": "O total seria **R$ 15.850**: R$ 4.200 por descarte irregular [p. 14], R$ 7.800 por desvio de temperatura [p. 12], R$ 2.500 por atraso [p. 10] e R$ 1.350 por documento fiscal incorreto ou ausente [p. 15].",
+          "text": "Uma ocorrência de cada multa totaliza **R$ 15.850**: R$ 4.200 por descarte irregular [p. 14], R$ 7.800 por desvio operacional de temperatura [p. 12], R$ 2.500 por atraso [p. 10] e R$ 1.350 por documento fiscal incorreto ou ausente [p. 15].",
           "sources": [
             "manual_simulado:p14:c2",
             "manual_simulado:p12:c1",
@@ -936,9 +1632,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 885,
-            "completion_tokens": 157,
-            "cost_usd": 0.00016588,
-            "latency_s": 4.700578125193715
+            "completion_tokens": 205,
+            "cost_usd": 0.00018988,
+            "latency_s": 4.582971916999668,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -947,51 +1644,54 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "A resposta informa o total correto de R$ 15.850 e inclui as quatro multas com os valores correspondentes."
+          "reason": "Apresenta o total correto de R$ 15.850 e os quatro valores de multa correspondentes."
         }
       },
       "agentic": {
         "answer": {
-          "text": "Somando uma ocorrência de cada multa interna prevista, o total seria **R$ 15.850**: R$ 2.500 por atraso [p. 10], R$ 7.800 por desvio operacional de temperatura [p. 12], R$ 4.200 por descarte irregular de resíduos [p. 14] e R$ 1.350 por documento fiscal incorreto ou ausente [p. 15].",
+          "text": "Uma ocorrência de cada multa interna totaliza **R$ 15.850**: R$ 2.500 por atraso [p. 10], R$ 7.800 por desvio de temperatura [p. 12], R$ 4.200 por descarte irregular [p. 14] e R$ 1.350 por documento fiscal incorreto ou documentação incompleta [p. 15].",
           "sources": [
             "manual_simulado:p14:c2",
-            "manual_simulado:p12:c1",
             "manual_simulado:p10:c2",
+            "manual_simulado:p12:c1",
             "manual_simulado:p15:c0",
-            "manual_simulado:p16:c1",
             "manual_simulado:p5:c2",
-            "manual_simulado:p1:c3",
+            "manual_simulado:p16:c1",
             "manual_simulado:p5:c1",
-            "manual_simulado:p7:c1",
             "manual_simulado:p10:c1",
-            "manual_simulado:p14:c1",
-            "manual_simulado:p6:c2",
-            "manual_simulado:p9:c2",
-            "manual_simulado:p1:c2",
-            "manual_simulado:p12:c2",
+            "manual_simulado:p13:c0",
+            "manual_simulado:p7:c1",
             "manual_simulado:p6:c0",
             "manual_simulado:p2:c2",
-            "manual_simulado:p8:c2",
-            "manual_simulado:p4:c2",
-            "manual_simulado:p9:c1"
+            "manual_simulado:p1:c3",
+            "manual_simulado:p6:c2",
+            "manual_simulado:p3:c0",
+            "manual_simulado:p9:c1",
+            "manual_simulado:p9:c0",
+            "manual_simulado:p3:c1",
+            "manual_simulado:p9:c2",
+            "manual_simulado:p12:c2",
+            "manual_simulado:p3:c2",
+            "manual_simulado:p13:c1"
           ],
           "usage": {
-            "llm_calls": 6,
-            "embed_calls": 2,
-            "prompt_tokens": 19225,
-            "completion_tokens": 485,
-            "cost_usd": 0.00077605,
-            "latency_s": 20.475815917830914
+            "llm_calls": 5,
+            "embed_calls": 1,
+            "prompt_tokens": 15362,
+            "completion_tokens": 375,
+            "cost_usd": 0.0006843,
+            "latency_s": 14.721702166832983,
+            "decider_calls": 0
           },
           "trace": [
             {
               "step": 1,
               "tool": "search_semantic",
               "args": {
-                "query": "multas internas valores das multas aplicadas à unidade por ocorrência previstas no manual",
+                "query": "multas internas previstas no manual, valores de cada ocorrência e cobrança aplicada à unidade",
                 "k": 10
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p14:c2\", \"page\": 14, \"section\": \"10.3 Descarte de resíduos\", \"score\": 0.647, \"text\": \"Resíduos de embalagens, paletes danificados e materiais contaminados devem ser seg…"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p14:c2\", \"page\": 14, \"section\": \"10.3 Descarte de resíduos\", \"score\": 0.689, \"text\": \"Resíduos de embalagens, paletes danificados e materiais contaminados devem ser seg…"
             },
             {
               "step": 2,
@@ -1003,15 +1703,6 @@
             },
             {
               "step": 3,
-              "tool": "search_semantic",
-              "args": {
-                "query": "penalidades financeiras, multas em reais cobradas de uma unidade por evento, ocorrência ou infração no manual",
-                "k": 20
-              },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p10:c2\", \"page\": 10, \"section\": \"6.6 Penalidade contratual por atraso\", \"score\": 0.702, \"text\": \"o prazo vigente, aplica-se ao centro de distribuição responsável uma mu…"
-            },
-            {
-              "step": 4,
               "tool": "grep",
               "args": {
                 "pattern": "multa"
@@ -1019,7 +1710,16 @@
               "result_preview": "4 ocorrência(s) de /multa/: [ {\"chunk_id\": \"manual_simulado:p10:c2\", \"page\": 10, \"section\": \"6.6 Penalidade contratual por atraso\", \"text\": \"…e 24 horas o prazo vigente, aplica-se ao centro de distrib…"
             },
             {
-              "step": 5,
+              "step": 3,
+              "tool": "search_keyword",
+              "args": {
+                "query": "R$ multa ocorrência unidade",
+                "k": 20
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p14:c2\", \"page\": 14, \"section\": \"10.3 Descarte de resíduos\", \"score\": 6.27, \"text\": \"Resíduos de embalagens, paletes danificados e materiais contaminados devem ser segr…"
+            },
+            {
+              "step": 4,
               "tool": "calculator",
               "args": {
                 "expression": "2500 + 7800 + 4200 + 1350"
@@ -1033,7 +1733,84 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "A resposta apresenta o total correto de R$ 15.850 e os quatro valores das multas previstos na referência."
+          "reason": "Apresenta o total correto de R$ 15.850 e os quatro valores das multas previstos na referência."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "O total seria **R$ 15.850**: R$ 2.500 por atraso [p. 10], R$ 7.800 por desvio operacional de temperatura [p. 12], R$ 4.200 por descarte irregular [p. 14] e R$ 1.350 por documento irregular [p. 15].",
+          "sources": [
+            "manual_simulado:p14:c2",
+            "manual_simulado:p12:c1",
+            "manual_simulado:p10:c2",
+            "manual_simulado:p15:c0",
+            "manual_simulado:p16:c1",
+            "manual_simulado:p7:c1",
+            "manual_simulado:p14:c1",
+            "manual_simulado:p10:c1",
+            "manual_simulado:p5:c2",
+            "manual_simulado:p5:c1"
+          ],
+          "usage": {
+            "llm_calls": 5,
+            "embed_calls": 1,
+            "prompt_tokens": 13269,
+            "completion_tokens": 313,
+            "cost_usd": 0.0006281110000000001,
+            "latency_s": 13.549791167024523,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "agregacao",
+                "confianca": 1.0
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "search_semantic",
+              "args": {
+                "query": "multas internas previstas no manual, valores das multas aplicadas à unidade",
+                "k": 10
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p14:c2\", \"page\": 14, \"section\": \"10.3 Descarte de resíduos\", \"score\": 0.66, \"text\": \"Resíduos de embalagens, paletes danificados e materiais contaminados devem ser segr…"
+            },
+            {
+              "step": 2,
+              "tool": "grep",
+              "args": {
+                "pattern": "multa interna"
+              },
+              "result_preview": "3 ocorrência(s) de /multa interna/: [ {\"chunk_id\": \"manual_simulado:p10:c2\", \"page\": 10, \"section\": \"6.6 Penalidade contratual por atraso\", \"text\": \"…e 24 horas o prazo vigente, aplica-se ao centro de…"
+            },
+            {
+              "step": 3,
+              "tool": "grep",
+              "args": {
+                "pattern": "multa"
+              },
+              "result_preview": "4 ocorrência(s) de /multa/: [ {\"chunk_id\": \"manual_simulado:p10:c2\", \"page\": 10, \"section\": \"6.6 Penalidade contratual por atraso\", \"text\": \"…e 24 horas o prazo vigente, aplica-se ao centro de distrib…"
+            },
+            {
+              "step": 4,
+              "tool": "calculator",
+              "args": {
+                "expression": "2500 + 7800 + 4200 + 1350"
+              },
+              "result_preview": "2500 + 7800 + 4200 + 1350 = 15850"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Apresenta o total correto de R$ 15.850 e os quatro valores correspondentes às multas previstas."
         }
       }
     },
@@ -1047,7 +1824,7 @@
       ],
       "simple": {
         "answer": {
-          "text": "A frota própria tem 150 caminhões ao todo, sem contar os VUCs: 48 na Região Sul, 73 na Região Sudeste e 29 na Região Nordeste [p. 4; p. 15].",
+          "text": "A frota própria tem **150 caminhões**, sem contar os VUCs: 48 na Região Sul, 73 na Região Sudeste e 29 na Região Nordeste [p. 4; p. 15].",
           "sources": [
             "manual_simulado:p4:c0",
             "manual_simulado:p4:c1",
@@ -1059,9 +1836,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1114,
-            "completion_tokens": 146,
-            "cost_usd": 0.000210745,
-            "latency_s": 3.852071249857545
+            "completion_tokens": 99,
+            "cost_usd": 0.000187245,
+            "latency_s": 4.4700532499700785,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -1070,12 +1848,12 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Informa o total de 150 caminhões, excluindo os VUCs, e apresenta a soma correta por região: 48 + 73 + 29."
+          "reason": "Informa 150 caminhões, sem contar os VUCs, com a mesma distribuição regional da referência."
         }
       },
       "agentic": {
         "answer": {
-          "text": "A frota própria tem **150 caminhões**, sem contar os VUCs: 48 na Região Sul, 73 na Sudeste e 29 na Nordeste [p. 4; p. 15].",
+          "text": "A frota própria tem **150 caminhões**, sem contar os VUCs: 48 na Região Sul, 73 na Sudeste e 29 na Nordeste [p. 4] [p. 15].",
           "sources": [
             "manual_simulado:p4:c0",
             "manual_simulado:p4:c1",
@@ -1086,20 +1864,85 @@
           "usage": {
             "llm_calls": 4,
             "embed_calls": 1,
-            "prompt_tokens": 9707,
-            "completion_tokens": 178,
-            "cost_usd": 0.00036205999999999993,
-            "latency_s": 10.816419747192413
+            "prompt_tokens": 10051,
+            "completion_tokens": 195,
+            "cost_usd": 0.000393815,
+            "latency_s": 9.372630624100566,
+            "decider_calls": 0
           },
           "trace": [
             {
               "step": 1,
               "tool": "search_semantic",
               "args": {
-                "query": "frota própria da empresa quantidade caminhões excluindo VUCs",
+                "query": "frota própria da empresa quantidade caminhões VUCs total excluindo VUC",
                 "k": 5
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p4:c0\", \"page\": 4, \"section\": \"3.3 Frota própria — Região Sul\", \"score\": 0.726, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 4 de 16\\n3.3 Fr…"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p4:c0\", \"page\": 4, \"section\": \"3.3 Frota própria — Região Sul\", \"score\": 0.732, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 4 de 16\\n3.3 Fr…"
+            },
+            {
+              "step": 2,
+              "tool": "grep",
+              "args": {
+                "pattern": "frota própria"
+              },
+              "result_preview": "5 ocorrência(s) de /frota própria/: [ {\"chunk_id\": \"manual_simulado:p4:c0\", \"page\": 4, \"section\": \"3.3 Frota própria — Região Sul\", \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas Pág…"
+            },
+            {
+              "step": 3,
+              "tool": "calculator",
+              "args": {
+                "expression": "48 + 73 + 29"
+              },
+              "result_preview": "48 + 73 + 29 = 150"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Informa o total de 150 caminhões, sem contar os VUCs, e apresenta a mesma soma por região da referência."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "A frota própria tem **150 caminhões**, sem contar os VUCs: 48 na Região Sul, 73 na Região Sudeste e 29 na Região Nordeste [p. 4; p. 15].",
+          "sources": [
+            "manual_simulado:p4:c0",
+            "manual_simulado:p4:c1",
+            "manual_simulado:p15:c1",
+            "manual_simulado:p4:c2",
+            "manual_simulado:p14:c1"
+          ],
+          "usage": {
+            "llm_calls": 4,
+            "embed_calls": 1,
+            "prompt_tokens": 9653,
+            "completion_tokens": 180,
+            "cost_usd": 0.000462321,
+            "latency_s": 10.12553841760382,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "agregacao",
+                "confianca": 0.95
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "search_semantic",
+              "args": {
+                "query": "frota própria da empresa quantidade de caminhões, excluir VUCs",
+                "k": 5
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p4:c0\", \"page\": 4, \"section\": \"3.3 Frota própria — Região Sul\", \"score\": 0.728, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 4 de 16\\n3.3 Fr…"
             },
             {
               "step": 2,
@@ -1113,9 +1956,9 @@
               "step": 3,
               "tool": "calculator",
               "args": {
-                "expression": "48+73+29"
+                "expression": "48 + 73 + 29"
               },
-              "result_preview": "48+73+29 = 150"
+              "result_preview": "48 + 73 + 29 = 150"
             }
           ]
         },
@@ -1124,7 +1967,7 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Informa o total de 150 caminhões, sem contar os VUCs, e apresenta a soma correta por região: 48 + 73 + 29."
+          "reason": "Informa 150 caminhões e detalha corretamente a composição: 48 no Sul, 73 no Sudeste e 29 no Nordeste."
         }
       }
     },
@@ -1138,7 +1981,7 @@
       ],
       "simple": {
         "answer": {
-          "text": "O pedido deve ser registrado em até 45 dias corridos após a data da despesa [p. 9].",
+          "text": "O prazo atual para pedir reembolso é de até 45 dias corridos após a data da despesa [p. 9].",
           "sources": [
             "manual_simulado:p9:c0",
             "manual_simulado:p9:c1",
@@ -1150,9 +1993,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1128,
-            "completion_tokens": 28,
-            "cost_usd": 0.000153495,
-            "latency_s": 2.7498672497458756
+            "completion_tokens": 54,
+            "cost_usd": 0.00016649499999999998,
+            "latency_s": 3.428969167172909,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -1161,7 +2005,7 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "A resposta informa o prazo vigente de 45 dias corridos após a data da despesa."
+          "reason": "Informa o prazo vigente de 45 dias corridos após a data da despesa."
         }
       },
       "agentic": {
@@ -1177,20 +2021,21 @@
           "usage": {
             "llm_calls": 2,
             "embed_calls": 1,
-            "prompt_tokens": 3896,
-            "completion_tokens": 84,
-            "cost_usd": 0.00020874499999999998,
-            "latency_s": 4.568885417189449
+            "prompt_tokens": 3901,
+            "completion_tokens": 87,
+            "cost_usd": 0.00021073999999999998,
+            "latency_s": 4.926563209388405,
+            "decider_calls": 0
           },
           "trace": [
             {
               "step": 1,
               "tool": "search_semantic",
               "args": {
-                "query": "prazo vigente para solicitar reembolso de despesas de viagem, prestação de contas ou envio de comprovantes",
+                "query": "prazo vigente para solicitar reembolso de despesa de viagem; período para apresentar pedido de reembolso após a viagem",
                 "k": 5
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p9:c1\", \"page\": 9, \"section\": \"6.2 Política de Reembolso de Despesas — versão 2025 (vigente)\", \"score\": 0.703, \"text\": \"O deslocamento com veículo próprio é reembolsado…"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p9:c1\", \"page\": 9, \"section\": \"6.2 Política de Reembolso de Despesas — versão 2025 (vigente)\", \"score\": 0.706, \"text\": \"O deslocamento com veículo próprio é reembolsado…"
             }
           ]
         },
@@ -1199,7 +2044,46 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Informa o prazo vigente de 45 dias corridos após a data da despesa; o detalhe adicional não contradiz a referência."
+          "reason": "Informa o prazo vigente de 45 dias corridos após a data da despesa, conforme a referência."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "O pedido deve ser registrado em até 45 dias corridos após a data da despesa, com os comprovantes digitalizados [p. 9].",
+          "sources": [
+            "manual_simulado:p9:c0",
+            "manual_simulado:p9:c1",
+            "manual_simulado:p9:c2",
+            "manual_simulado:p10:c0",
+            "manual_simulado:p10:c1"
+          ],
+          "usage": {
+            "llm_calls": 1,
+            "embed_calls": 1,
+            "prompt_tokens": 1128,
+            "completion_tokens": 35,
+            "cost_usd": 5.283e-05,
+            "latency_s": 4.137654374353588,
+            "decider_calls": 1
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "simples",
+                "confianca": 1.0
+              },
+              "result_preview": "RAG simples"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Informa corretamente o prazo vigente de 45 dias corridos após a data da despesa."
         }
       }
     },
@@ -1213,7 +2097,7 @@
       ],
       "simple": {
         "answer": {
-          "text": "A frota própria que atende o Sul do país é composta por 48 caminhões [p. 4].",
+          "text": "A frota própria que atende o Sul é composta por 48 caminhões [p. 4].",
           "sources": [
             "manual_simulado:p4:c0",
             "manual_simulado:p4:c1",
@@ -1225,9 +2109,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1155,
-            "completion_tokens": 47,
-            "cost_usd": 0.0001665,
-            "latency_s": 3.3776904167607427
+            "completion_tokens": 44,
+            "cost_usd": 0.000165,
+            "latency_s": 2.870390832889825,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -1236,7 +2121,7 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Informa corretamente que a frota própria da Região Sul tem 48 caminhões."
+          "reason": "Informa corretamente que a frota própria do Sul tem 48 caminhões."
         }
       },
       "agentic": {
@@ -1255,7 +2140,8 @@
             "prompt_tokens": 3931,
             "completion_tokens": 61,
             "cost_usd": 0.00020260999999999999,
-            "latency_s": 4.443433915730566
+            "latency_s": 6.934803748968989,
+            "decider_calls": 0
           },
           "trace": [
             {
@@ -1276,6 +2162,54 @@
           "judge": true,
           "reason": "Informa corretamente que a frota própria da Região Sul tem 48 caminhões."
         }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "A frota própria que atende o Sul do país é composta por **48 caminhões** [p. 4].",
+          "sources": [
+            "manual_simulado:p4:c0",
+            "manual_simulado:p4:c1",
+            "manual_simulado:p15:c1",
+            "manual_simulado:p4:c2",
+            "manual_simulado:p1:c0"
+          ],
+          "usage": {
+            "llm_calls": 2,
+            "embed_calls": 1,
+            "prompt_tokens": 3929,
+            "completion_tokens": 60,
+            "cost_usd": 0.000294052,
+            "latency_s": 5.301519250497222,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "simples",
+                "confianca": 0.47
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "search_semantic",
+              "args": {
+                "query": "frota própria caminhões atende Sul do país quantidade",
+                "k": 5
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p4:c0\", \"page\": 4, \"section\": \"3.3 Frota própria — Região Sul\", \"score\": 0.729, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 4 de 16\\n3.3 Fr…"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "A resposta informa corretamente que a frota própria da Região Sul tem 48 caminhões."
+        }
       }
     },
     {
@@ -1288,7 +2222,7 @@
       ],
       "simple": {
         "answer": {
-          "text": "A empresa se compromete a entregar em até 54 horas a partir da coleta, para capitais atendidas pela rede [p. 10].",
+          "text": "Para capitais atendidas pela rede, o prazo máximo vigente é de 54 horas a partir da coleta [p. 10].",
           "sources": [
             "manual_simulado:p10:c0",
             "manual_simulado:p10:c1",
@@ -1300,9 +2234,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1084,
-            "completion_tokens": 34,
-            "cost_usd": 0.000150995,
-            "latency_s": 3.5144356666132808
+            "completion_tokens": 58,
+            "cost_usd": 0.000162995,
+            "latency_s": 3.383340791799128,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -1316,31 +2251,37 @@
       },
       "agentic": {
         "answer": {
-          "text": "A empresa se compromete a entregar a carga em até **54 horas a partir da coleta**, para capitais atendidas pela rede. Esse é o prazo vigente [p. 10].",
+          "text": "A empresa se compromete a entregar em até **54 horas a partir da coleta**, para capitais atendidas pela rede [p. 10].",
           "sources": [
             "manual_simulado:p10:c1",
             "manual_simulado:p10:c0",
             "manual_simulado:p5:c0",
             "manual_simulado:p10:c2",
-            "manual_simulado:p12:c3"
+            "manual_simulado:p12:c3",
+            "manual_simulado:p15:c1",
+            "manual_simulado:p1:c0",
+            "manual_simulado:p4:c0",
+            "manual_simulado:p4:c1",
+            "manual_simulado:p13:c1"
           ],
           "usage": {
             "llm_calls": 2,
             "embed_calls": 1,
-            "prompt_tokens": 3777,
-            "completion_tokens": 84,
-            "cost_usd": 0.00019391500000000002,
-            "latency_s": 4.537377373781055
+            "prompt_tokens": 3961,
+            "completion_tokens": 71,
+            "cost_usd": 0.00021087,
+            "latency_s": 4.282499123830348,
+            "decider_calls": 0
           },
           "trace": [
             {
               "step": 1,
               "tool": "search_semantic",
               "args": {
-                "query": "Prazo atual de entrega para carga destinada a uma capital, compromisso da empresa com prazo de entrega.",
-                "k": 5
+                "query": "prazo de entrega de carga destinada a uma capital, compromisso atual da empresa",
+                "k": 10
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p10:c1\", \"page\": 10, \"section\": \"6.6 Penalidade contratual por atraso\", \"score\": 0.662, \"text\": \"6.5 Prazos de entrega ao cliente — revisão 2025 (vigente)\\nRevisão vige…"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p10:c1\", \"page\": 10, \"section\": \"6.6 Penalidade contratual por atraso\", \"score\": 0.655, \"text\": \"6.5 Prazos de entrega ao cliente — revisão 2025 (vigente)\\nRevisão vige…"
             }
           ]
         },
@@ -1349,7 +2290,46 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "Informa o prazo vigente de até 54 horas a partir da coleta, conforme a referência."
+          "reason": "Informa o prazo vigente de até 54 horas a partir da coleta; a condição adicional sobre capitais atendidas pela rede não contradiz a referência."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "Para capitais atendidas pela rede, o prazo máximo é de 54 horas a partir da coleta [p. 10].",
+          "sources": [
+            "manual_simulado:p10:c0",
+            "manual_simulado:p10:c1",
+            "manual_simulado:p5:c0",
+            "manual_simulado:p15:c1",
+            "manual_simulado:p10:c2"
+          ],
+          "usage": {
+            "llm_calls": 1,
+            "embed_calls": 1,
+            "prompt_tokens": 1084,
+            "completion_tokens": 54,
+            "cost_usd": 6.2016e-05,
+            "latency_s": 3.650983290746808,
+            "decider_calls": 1
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "simples",
+                "confianca": 0.96
+              },
+              "result_preview": "RAG simples"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "Informa o prazo vigente de até 54 horas a partir da coleta."
         }
       }
     },
@@ -1375,9 +2355,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1049,
-            "completion_tokens": 36,
-            "cost_usd": 0.000148205,
-            "latency_s": 3.586346957832575
+            "completion_tokens": 35,
+            "cost_usd": 0.000147705,
+            "latency_s": 2.639833541121334,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -1388,12 +2369,12 @@
             "75"
           ],
           "judge": false,
-          "reason": "faltam termos ['75']; juiz: A resposta não apresenta as regras da seção 7.3 descritas na referência."
+          "reason": "faltam termos ['75']; juiz: A resposta não informa nenhum dos critérios ou prazos da seção 7.3 descritos na referência."
         }
       },
       "agentic": {
         "answer": {
-          "text": "A seção 7.3 diz que o fornecedor será descredenciado se obtiver nota inferior a 6,0 em duas avaliações trimestrais consecutivas. A Nébula comunicará a decisão por escrito e dará aviso prévio de 75 dias para a transição, mantendo o contrato válido nesse período. O fornecedor só poderá pedir nova homologação após 12 meses da comunicação. Em casos de fraude, corrupção ou violação grave de segurança, o descredenciamento será imediato e sem aviso prévio [p. 11].",
+          "text": "A seção 7.3 diz que um fornecedor será descredenciado se obtiver nota inferior a 6,0 em duas avaliações trimestrais consecutivas. A decisão será comunicada por escrito, com aviso prévio de 75 dias, durante o qual o contrato continua válido. O fornecedor só poderá solicitar nova homologação após 12 meses da comunicação. Em casos de fraude, corrupção ou violação grave de segurança, o descredenciamento é imediato, sem aviso prévio [p. 11].",
           "sources": [
             "manual_simulado:p11:c0",
             "manual_simulado:p11:c1"
@@ -1402,9 +2383,10 @@
             "llm_calls": 3,
             "embed_calls": 0,
             "prompt_tokens": 6519,
-            "completion_tokens": 152,
-            "cost_usd": 0.000299205,
-            "latency_s": 6.8306225426495075
+            "completion_tokens": 146,
+            "cost_usd": 0.000296205,
+            "latency_s": 5.8581876661628485,
+            "decider_calls": 0
           },
           "trace": [
             {
@@ -1429,7 +2411,58 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": true,
-          "reason": "A resposta inclui os critérios, o aviso prévio de 75 dias, o prazo de 12 meses para nova homologação e as hipóteses de descredenciamento imediato."
+          "reason": "A resposta inclui os critérios de descredenciamento, o aviso prévio de 75 dias, o prazo de 12 meses para nova homologação e as hipóteses de descredenciamento imediato."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "A seção 7.3 diz que fornecedores com nota inferior a 6,0 em duas avaliações trimestrais consecutivas serão descredenciados. A decisão será comunicada por escrito, com aviso prévio de 75 dias para a transição, durante o qual o contrato permanece válido. O fornecedor só poderá solicitar nova homologação após 12 meses da comunicação. Em casos de fraude, corrupção ou violação grave de segurança, o descredenciamento é imediato e sem aviso prévio. [p. 11]",
+          "sources": [
+            "manual_simulado:p11:c0",
+            "manual_simulado:p11:c1"
+          ],
+          "usage": {
+            "llm_calls": 3,
+            "embed_calls": 0,
+            "prompt_tokens": 6585,
+            "completion_tokens": 149,
+            "cost_usd": 0.00040983299999999996,
+            "latency_s": 9.30457812640816,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "referencia_secao",
+                "confianca": 1.0
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "list_outline",
+              "args": {},
+              "result_preview": "manual_simulado p. 1: 1 Apresentação manual_simulado p. 1: 1.1 Sobre a empresa manual_simulado p. 1: 1.2 Objetivo e abrangência manual_simulado p. 1: 1.3 Como usar este manual manual_simulado p. 2: 2 …"
+            },
+            {
+              "step": 2,
+              "tool": "read_page",
+              "args": {
+                "doc_id": "manual_simulado",
+                "page": 11
+              },
+              "result_preview": "[manual_simulado — página 11] Nébula Logística S.A. — Manual de Operações e Políticas Página 11 de 16 7 Gestão de Fornecedores 7.1 Homologação Nenhum fornecedor pode ser contratado sem homologação pré…"
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": true,
+          "reason": "A resposta inclui todos os critérios e prazos essenciais da referência, sem contradizê-los."
         }
       }
     },
@@ -1444,7 +2477,7 @@
       ],
       "simple": {
         "answer": {
-          "text": "A página 15 trata de conformidade fiscal e documental: documentos de transporte, conferência e registro da documentação, penalidades por documentação incorreta ou incompleta e guarda eletrônica dos documentos pelo prazo legal [p. 15].",
+          "text": "A página 15 trata de conformidade fiscal e documental: documentos obrigatórios para a saída de veículos, conferência e registro na portaria, multas e regularização em caso de irregularidades, além da guarda eletrônica dos documentos pelo prazo legal [p. 15].",
           "sources": [
             "manual_simulado:p1:c3",
             "manual_simulado:p16:c0",
@@ -1456,9 +2489,10 @@
             "llm_calls": 1,
             "embed_calls": 1,
             "prompt_tokens": 1073,
-            "completion_tokens": 97,
-            "cost_usd": 0.00018157499999999998,
-            "latency_s": 4.768147834111005
+            "completion_tokens": 105,
+            "cost_usd": 0.000185575,
+            "latency_s": 3.5027004186995327,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -1469,12 +2503,12 @@
             "Nordeste"
           ],
           "judge": false,
-          "reason": "faltam termos ['Nordeste']; juiz: Menciona apenas conformidade fiscal e documental, omitindo a expansão no Nordeste e seus dados essenciais; também não informa a multa de R$ 1.350 por documento."
+          "reason": "faltam termos ['Nordeste']; juiz: A resposta omite o capítulo 12, sobre a expansão no Nordeste e seus dados operacionais, e não informa a multa de R$ 1.350 por documento."
         }
       },
       "agentic": {
         "answer": {
-          "text": "Na página 15 são tratados:\n\n- **Conformidade fiscal e documental**: documentação exigida para a saída dos veículos, conferência na portaria, penalidade por documentos incorretos ou incompletos e guarda dos documentos [p. 15].\n- **Expansão no Nordeste**: atendimento a Pernambuco, Paraíba e Alagoas, composição da frota regional, rotas entre Recife, João Pessoa e Maceió e incidentes de segurança ocorridos em 2024 [p. 15].",
+          "text": "A página 15 trata de **conformidade fiscal e documental** — documentação de transporte, multas por irregularidades e guarda de documentos — e da **expansão da operação no Nordeste**, incluindo a unidade de Recife, a frota, as rotas e medidas adotadas após roubos de carga [p. 15].",
           "sources": [
             "manual_simulado:p15:c0",
             "manual_simulado:p15:c1"
@@ -1483,9 +2517,10 @@
             "llm_calls": 2,
             "embed_calls": 0,
             "prompt_tokens": 3152,
-            "completion_tokens": 134,
-            "cost_usd": 0.00014322,
-            "latency_s": 3.92512150015682
+            "completion_tokens": 94,
+            "cost_usd": 0.00012322,
+            "latency_s": 3.59979112399742,
+            "decider_calls": 0
           },
           "trace": [
             {
@@ -1504,7 +2539,58 @@
           "must_contain_ok": true,
           "missing": [],
           "judge": false,
-          "reason": "Omitiu fatos essenciais da referência: a multa de R$ 1.350 por documento, a frota de 29 caminhões e 8 VUCs e os 2 incidentes classe 3 em 2024."
+          "reason": "A resposta omite dados essenciais: a multa de R$ 1.350 por documento, a frota de 29 caminhões e 8 VUCs e os 2 incidentes classe 3 em 2024."
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "Na página 15 são tratados estes assuntos:\n\n- **Conformidade fiscal e documental:** documentos exigidos para o transporte, conferência e penalidades por irregularidades [p. 15].\n- **Guarda de documentos:** arquivamento eletrônico e prazo para digitalizar vias físicas assinadas [p. 15].\n- **Expansão no Nordeste:** atendimento a Pernambuco, Paraíba e Alagoas; frota e rotas regionais; incidentes de roubo de carga e adoção de escolta armada em rotas noturnas de maior risco [p. 15].",
+          "sources": [
+            "manual_simulado:p15:c0",
+            "manual_simulado:p15:c1"
+          ],
+          "usage": {
+            "llm_calls": 3,
+            "embed_calls": 0,
+            "prompt_tokens": 6596,
+            "completion_tokens": 215,
+            "cost_usd": 0.000444754,
+            "latency_s": 10.821782502811402,
+            "decider_calls": 2
+          },
+          "trace": [
+            {
+              "step": 0,
+              "tool": "router:jev",
+              "args": {
+                "categoria": "referencia_secao",
+                "confianca": 0.85
+              },
+              "result_preview": "RAG agêntico"
+            },
+            {
+              "step": 1,
+              "tool": "list_outline",
+              "args": {},
+              "result_preview": "manual_simulado p. 1: 1 Apresentação manual_simulado p. 1: 1.1 Sobre a empresa manual_simulado p. 1: 1.2 Objetivo e abrangência manual_simulado p. 1: 1.3 Como usar este manual manual_simulado p. 2: 2 …"
+            },
+            {
+              "step": 2,
+              "tool": "read_page",
+              "args": {
+                "doc_id": "manual_simulado",
+                "page": 15
+              },
+              "result_preview": "[manual_simulado — página 15] Nébula Logística S.A. — Manual de Operações e Políticas Página 15 de 16 11 Conformidade Fiscal e Documental 11.1 Documentos de transporte Nenhum veículo pode sair de um c…"
+            }
+          ]
+        },
+        "grade": {
+          "correct": false,
+          "must_contain_ok": true,
+          "missing": [],
+          "judge": false,
+          "reason": "A resposta omite dados essenciais da referência: multa de R$ 1.350 por documento, operação regional a partir de Recife, frota de 29 caminhões e 8 VUCs e 2 incidentes classe 3 em 2024."
         }
       }
     },
@@ -1530,7 +2616,8 @@
             "prompt_tokens": 1043,
             "completion_tokens": 12,
             "cost_usd": 0.00010962,
-            "latency_s": 2.637516333255917
+            "latency_s": 2.778659583069384,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -1549,31 +2636,32 @@
             "manual_simulado:p8:c0",
             "manual_simulado:p8:c1",
             "manual_simulado:p3:c2",
-            "manual_simulado:p10:c0",
             "manual_simulado:p2:c2",
-            "manual_simulado:p9:c2",
+            "manual_simulado:p10:c0",
             "manual_simulado:p9:c1",
-            "manual_simulado:p2:c0",
+            "manual_simulado:p9:c2",
             "manual_simulado:p9:c0",
-            "manual_simulado:p8:c2"
+            "manual_simulado:p2:c0",
+            "manual_simulado:p2:c1"
           ],
           "usage": {
-            "llm_calls": 5,
+            "llm_calls": 4,
             "embed_calls": 2,
-            "prompt_tokens": 13574,
-            "completion_tokens": 217,
-            "cost_usd": 0.000517865,
-            "latency_s": 12.032917582895607
+            "prompt_tokens": 11132,
+            "completion_tokens": 251,
+            "cost_usd": 0.000509275,
+            "latency_s": 10.042634999379516,
+            "decider_calls": 0
           },
           "trace": [
             {
               "step": 1,
               "tool": "search_semantic",
               "args": {
-                "query": "dias por semana colaboradores administrativos trabalhar em home office",
+                "query": "colaboradores administrativos quantidade de dias por semana em home office",
                 "k": 5
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p8:c0\", \"page\": 8, \"section\": \"5.2 Férias e afastamentos\", \"score\": 0.604, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 8 de 16\\n5 Pessoas e…"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p8:c0\", \"page\": 8, \"section\": \"5.2 Férias e afastamentos\", \"score\": 0.601, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 8 de 16\\n5 Pessoas e…"
             },
             {
               "step": 2,
@@ -1585,16 +2673,16 @@
               "result_preview": "Nenhum trecho contém esses termos. Tente sinônimos, search_semantic ou grep."
             },
             {
-              "step": 3,
+              "step": 2,
               "tool": "search_semantic",
               "args": {
-                "query": "trabalho remoto administrativos frequência semanal política teletrabalho",
+                "query": "política de trabalho remoto ou híbrido para equipe administrativa, dias permitidos por semana",
                 "k": 10
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p8:c0\", \"page\": 8, \"section\": \"5.2 Férias e afastamentos\", \"score\": 0.581, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 8 de 16\\n5 Pessoas e…"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p8:c0\", \"page\": 8, \"section\": \"5.2 Férias e afastamentos\", \"score\": 0.689, \"text\": \"Nébula Logística S.A. — Manual de Operações e Políticas\\nPágina 8 de 16\\n5 Pessoas e…"
             },
             {
-              "step": 4,
+              "step": 3,
               "tool": "grep",
               "args": {
                 "pattern": "home office"
@@ -1602,28 +2690,59 @@
               "result_preview": "Nenhuma ocorrência de /home office/."
             },
             {
-              "step": 4,
+              "step": 3,
               "tool": "grep",
               "args": {
-                "pattern": "teletrabalho"
+                "pattern": "teletrabalho|remoto|híbrido"
               },
-              "result_preview": "Nenhuma ocorrência de /teletrabalho/."
+              "result_preview": "Nenhuma ocorrência de /teletrabalho|remoto|híbrido/."
             },
             {
-              "step": 4,
+              "step": 3,
               "tool": "grep",
               "args": {
-                "pattern": "remoto"
+                "pattern": "dias por semana"
               },
-              "result_preview": "Nenhuma ocorrência de /remoto/."
-            },
+              "result_preview": "Nenhuma ocorrência de /dias por semana/."
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": null,
+          "missing": [],
+          "judge": null,
+          "reason": "declarou ausência"
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "Não encontrei essa informação no documento.",
+          "sources": [
+            "manual_simulado:p8:c0",
+            "manual_simulado:p8:c1",
+            "manual_simulado:p3:c2",
+            "manual_simulado:p9:c1",
+            "manual_simulado:p10:c0"
+          ],
+          "usage": {
+            "llm_calls": 1,
+            "embed_calls": 1,
+            "prompt_tokens": 1043,
+            "completion_tokens": 12,
+            "cost_usd": 0.0001323,
+            "latency_s": 3.8801428331062198,
+            "decider_calls": 1
+          },
+          "trace": [
             {
-              "step": 4,
-              "tool": "grep",
+              "step": 0,
+              "tool": "router:jev",
               "args": {
-                "pattern": "híbrido"
+                "categoria": "simples",
+                "confianca": 1.0
               },
-              "result_preview": "Nenhuma ocorrência de /híbrido/."
+              "result_preview": "RAG simples"
             }
           ]
         },
@@ -1658,7 +2777,8 @@
             "prompt_tokens": 1124,
             "completion_tokens": 12,
             "cost_usd": 0.000145255,
-            "latency_s": 2.7094735838472843
+            "latency_s": 2.7265466251410544,
+            "decider_calls": 0
           },
           "trace": []
         },
@@ -1675,88 +2795,128 @@
           "text": "Não encontrei essa informação no documento.",
           "sources": [
             "manual_simulado:p3:c1",
+            "manual_simulado:p8:c0",
             "manual_simulado:p13:c1",
             "manual_simulado:p10:c2",
             "manual_simulado:p13:c0",
-            "manual_simulado:p8:c0",
-            "manual_simulado:p3:c2",
-            "manual_simulado:p2:c2",
+            "manual_simulado:p11:c0",
+            "manual_simulado:p6:c1",
             "manual_simulado:p9:c2",
             "manual_simulado:p9:c1",
-            "manual_simulado:p9:c0",
             "manual_simulado:p2:c0",
+            "manual_simulado:p2:c2",
             "manual_simulado:p2:c1",
-            "manual_simulado:p14:c2"
+            "manual_simulado:p3:c2",
+            "manual_simulado:p9:c0"
           ],
           "usage": {
-            "llm_calls": 4,
-            "embed_calls": 3,
-            "prompt_tokens": 12845,
-            "completion_tokens": 339,
-            "cost_usd": 0.0007277800000000001,
-            "latency_s": 12.540578623302281
+            "llm_calls": 6,
+            "embed_calls": 2,
+            "prompt_tokens": 17783,
+            "completion_tokens": 308,
+            "cost_usd": 0.0006543199999999999,
+            "latency_s": 14.31492912536487,
+            "decider_calls": 0
           },
           "trace": [
             {
               "step": 1,
               "tool": "search_semantic",
               "args": {
-                "query": "Como é calculada a participação nos lucros (PLR) paga aos funcionários? fórmula, critérios, valores ou metas para cálculo do pagamento",
-                "k": 5
+                "query": "Como é calculada a participação nos lucros (PLR) paga aos funcionários? critérios, fórmula, valores, metas e regras de pagamento",
+                "k": 10
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p3:c1\", \"page\": 3, \"section\": \"3.2 Gestão das unidades\", \"score\": 0.366, \"text\": \"Cada centro de distribuição tem um gerente de unidade, responsável por pessoas, segura…"
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p3:c1\", \"page\": 3, \"section\": \"3.2 Gestão das unidades\", \"score\": 0.328, \"text\": \"Cada centro de distribuição tem um gerente de unidade, responsável por pessoas, segura…"
             },
             {
               "step": 2,
               "tool": "search_keyword",
               "args": {
-                "query": "PLR",
+                "query": "PLR participação lucros",
                 "k": 10
               },
-              "result_preview": "Nenhum trecho contém esses termos. Tente sinônimos, search_semantic ou grep."
-            },
-            {
-              "step": 2,
-              "tool": "search_semantic",
-              "args": {
-                "query": "participação nos lucros e resultados remuneração variável funcionários metas indicadores pagamento anual",
-                "k": 10
-              },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p3:c2\", \"page\": 3, \"section\": \"3.2 Gestão das unidades\", \"score\": 0.44, \"text\": \"liderada por Tiago Falcão Medeiros.\\nOs gerentes de unidade se reúnem mensalmente com a…"
-            },
-            {
-              "step": 2,
-              "tool": "grep",
-              "args": {
-                "pattern": "PLR|participação nos lucros|lucros e resultados"
-              },
-              "result_preview": "Nenhuma ocorrência de /PLR|participação nos lucros|lucros e resultados/."
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p6:c1\", \"page\": 6, \"section\": \"4.3 Ocorrências relevantes de 2025\", \"score\": 3.54, \"text\": \"e Segurança do Trabalho em até duas horas após o conhecimento do fato. Um co…"
             },
             {
               "step": 3,
+              "tool": "grep",
+              "args": {
+                "pattern": "PLR"
+              },
+              "result_preview": "Nenhuma ocorrência de /PLR/."
+            },
+            {
+              "step": 4,
+              "tool": "search_semantic",
+              "args": {
+                "query": "remuneração variável anual dos empregados vinculada aos resultados da empresa, distribuição de lucros ou bônus por metas individuais e coletivas",
+                "k": 10
+              },
+              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p10:c2\", \"page\": 10, \"section\": \"6.6 Penalidade contratual por atraso\", \"score\": 0.507, \"text\": \"o prazo vigente, aplica-se ao centro de distribuição responsável uma mu…"
+            },
+            {
+              "step": 5,
+              "tool": "grep",
+              "args": {
+                "pattern": "lucro"
+              },
+              "result_preview": "Nenhuma ocorrência de /lucro/."
+            },
+            {
+              "step": 5,
+              "tool": "grep",
+              "args": {
+                "pattern": "bônus|bonus|premiação|remuneração variável"
+              },
+              "result_preview": "Nenhuma ocorrência de /bônus|bonus|premiação|remuneração variável/."
+            },
+            {
+              "step": 5,
               "tool": "search_keyword",
               "args": {
-                "query": "bônus",
+                "query": "lucros resultados funcionários",
                 "k": 10
               },
               "result_preview": "Nenhum trecho contém esses termos. Tente sinônimos, search_semantic ou grep."
-            },
+            }
+          ]
+        },
+        "grade": {
+          "correct": true,
+          "must_contain_ok": null,
+          "missing": [],
+          "judge": null,
+          "reason": "declarou ausência"
+        }
+      },
+      "hybrid": {
+        "answer": {
+          "text": "Não encontrei essa informação no documento.",
+          "sources": [
+            "manual_simulado:p3:c1",
+            "manual_simulado:p8:c0",
+            "manual_simulado:p13:c1",
+            "manual_simulado:p13:c0",
+            "manual_simulado:p2:c0"
+          ],
+          "usage": {
+            "llm_calls": 1,
+            "embed_calls": 1,
+            "prompt_tokens": 1124,
+            "completion_tokens": 12,
+            "cost_usd": 4.109e-05,
+            "latency_s": 3.3496545841917396,
+            "decider_calls": 1
+          },
+          "trace": [
             {
-              "step": 3,
-              "tool": "search_semantic",
+              "step": 0,
+              "tool": "router:jev",
               "args": {
-                "query": "regra de remuneração adicional ou benefício pago a empregados com base no resultado financeiro da empresa ou desempenho individual",
-                "k": 10
+                "categoria": "simples",
+                "confianca": 0.89
               },
-              "result_preview": "[ {\"chunk_id\": \"manual_simulado:p10:c2\", \"page\": 10, \"section\": \"6.6 Penalidade contratual por atraso\", \"score\": 0.459, \"text\": \"o prazo vigente, aplica-se ao centro de distribuição responsável uma mu…"
-            },
-            {
-              "step": 3,
-              "tool": "grep",
-              "args": {
-                "pattern": "bônus|remuneração variável|prêmio|bonificação"
-              },
-              "result_preview": "Nenhuma ocorrência de /bônus|remuneração variável|prêmio|bonificação/."
+              "result_preview": "RAG simples"
             }
           ]
         },

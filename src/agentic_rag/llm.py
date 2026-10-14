@@ -21,13 +21,14 @@ class Usage:
     completion_tokens: int = 0
     cost_usd: float = 0.0
     latency_s: float = 0.0
+    decider_calls: int = 0  # decisões tipadas do modo híbrido (Jev ou LLM)
 
     @property
     def total_tokens(self) -> int:
         return self.prompt_tokens + self.completion_tokens
 
     def add(self, other: "Usage") -> None:
-        for f in ("llm_calls", "embed_calls", "prompt_tokens", "completion_tokens", "cost_usd", "latency_s"):
+        for f in self.__dataclass_fields__:
             setattr(self, f, getattr(self, f) + getattr(other, f))
 
     def snapshot(self) -> "Usage":

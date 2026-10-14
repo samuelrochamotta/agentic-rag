@@ -90,13 +90,31 @@ Saída de tool truncada em ~4000 caracteres.
 
 ## `agent.py`
 ```python
-def run_agent(question: str, store, llm, max_steps: int = 8, verbose: bool = False, console=None) -> Answer
+def run_agent(question: str, store, llm, max_steps: int = 8, verbose: bool = False, console=None,
+              toolbox=None, tool_schemas=None, extra_instructions: str | None = None,
+              check_final: Callable[[str, list[dict]], str | None] | None = None) -> Answer
 ```
 Loop: system prompt (pt-BR) instrui a planejar, usar ferramentas, citar páginas `[p. N]`, e dizer
 explicitamente "Não encontrei essa informação no documento" quando não houver evidência.
 Em cada passo: chama `llm.chat(messages, tools=TOOL_SCHEMAS)`; se houver tool_calls, executa todos, anexa
 resultados e continua; senão termina. Ao atingir `max_steps`, força resposta final sem tools.
 `verbose=True` imprime trace com rich (passo, tool, args, resumo do resultado).
+`extra_instructions` é anexado ao system prompt. `check_final(rascunho, mensagens)` roda quando o modelo
+quer parar (no máximo uma vez, só se ainda houver passos); se devolver texto, ele volta como mensagem
+`user` e o loop continua.
+
+## `decider.py` e `hybrid.py`
+```python
+class Decider(Protocol):
+    name: str
+    def decide(self, state: str | dict, questions: dict[str, Choice | Noul], llm) -> dict[str, Decision]
+def run_hybrid(question: str, store, llm, decider: Decider, max_steps: int = 8, ...) -> Answer
+```
+`Decision(value, confidence, probabilities)`. Implementações: `JevDecider` (HTTP para
+`<OPENROUTER_BASE_URL>/systemone`) e `LLMDecider` (chat com JSON schema). O decider registra o uso em
+`llm.usage` (`decider_calls`, latência e custo; o do Jev vem em `usage.cost` do OpenRouter).
+`run_hybrid`: roteador (Choice) → `run_simple` se "simples" com confiança ≥ `ROUTE_THRESHOLD`, senão
+`run_agent` com dica e verificador de evidência (Noul). `trace[0]` registra a rota.
 
 ## `simple_rag.py`
 ```python
@@ -112,7 +130,7 @@ Embeda a pergunta → `vector_search` top-k → uma única chamada de chat com o
 class Answer:
     text: str
     sources: list[str]            # chunk_ids usados
-    usage: Usage                  # chamadas, tokens, custo, latência
+    usage: Usage                  # chamadas, decisões, tokens, custo, latência
     trace: list[dict] = field(default_factory=list)   # passos do agente (vazio no simples)
 ```
 

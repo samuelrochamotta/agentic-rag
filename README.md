@@ -92,6 +92,44 @@ ler `TOOL_SCHEMAS` e o system prompt em `agent.py`.
 4. Tudo é salvo em `.index/<hash>/`. O hash depende do PDF, do modelo e dos parâmetros de chunking,
    então reingerir o mesmo arquivo não gasta nada.
 
+### Modo híbrido: decisões tipadas (`src/agentic_rag/hybrid.py`, `decider.py`)
+
+Experimento para gastar o agente só onde ele faz diferença. Algumas decisões da arquitetura são
+**fechadas** ("essa pergunta é simples?", "a evidência já basta?"). Para elas não precisamos de texto
+livre: precisamos de uma resposta de tipo conhecido e de uma confiança para comparar com um limiar.
+
+```
+pergunta ─► ROTEADOR (escolha entre 5 tipos) ──"simples" e confiança ≥ ROUTE_THRESHOLD──► RAG simples
+                   │
+                   └─ qualquer outro caso ─► RAG agêntico + dica da 1ª ferramenta
+                                             (agregacao → grep, referencia_secao → list_outline, ...)
+                                                   │
+                                quando o agente quer parar: VERIFICADOR (sim/não)
+                                "as evidências sustentam toda a resposta?"
+                                P(sim) < EVIDENCE_THRESHOLD → busca mais uma vez (no máximo uma)
+```
+
+Quem decide é um `Decider`, com duas implementações:
+
+- **`jev`** (padrão): o [Jev, da TypeSafe AI](https://docs.typesafe.ai/api), servido pelo OpenRouter
+  com a mesma chave. Não é um LLM: recebe um estado e perguntas tipadas e devolve as respostas numa
+  passada só, com probabilidade por opção. Por isso não usa chat completions: a chamada é HTTP puro
+  para `POST https://openrouter.ai/api/v1/systemone`, para ficar visível o que vai e o que volta.
+- **`llm`**: o próprio `CHAT_MODEL` com saída estruturada (JSON schema). É a linha de base: sem ela
+  não dá para saber se o Jev ajuda ou se qualquer saída estruturada já bastaria. A confiança aqui é
+  autodeclarada pelo modelo, o que costuma ser mal calibrado.
+
+Limitações:
+
+- O roteador só vê a pergunta, não o documento. Ele classifica pela forma da pergunta; `distrator` e
+  `sem_resposta` dependem do conteúdo e não entram na classificação. Na dúvida, a pergunta vai para o
+  agente.
+- O verificador não roda quando o rascunho diz "não encontrei": nesse caso ele responderia "não" sempre.
+- O custo do Jev vem do campo `usage.cost` que o OpenRouter devolve. Se ele faltar, o relatório avisa
+  que o custo do híbrido está subestimado. As chamadas ao Jev aparecem na coluna "decisões", não em
+  "chamadas LLM".
+- Ainda não há números do híbrido neste README: rode `rag eval` e compare.
+
 ## Como rodar
 
 Requer [uv](https://docs.astral.sh/uv/).
@@ -105,12 +143,16 @@ uv run rag ingest data/manual_simulado.pdf
 
 uv run rag ask "Quem gerencia o CD onde houve o vazamento de amônia?" --mode both --verbose
 uv run rag chat --mode agentic  # REPL interativo (cada pergunta é independente)
-uv run rag eval                 # roda as 18 perguntas nos dois modos e gera eval/results.md
+uv run rag ask "Quantos incidentes classe 3 houve em 2024?" --mode hybrid --verbose
+uv run rag eval                 # roda as 18 perguntas nos três modos e gera eval/results.md
+uv run rag eval --systems hybrid --decider llm   # só o híbrido, com o LLM decidindo
 uv run pytest -q                # testes offline (sem rede)
 ```
 
 `--verbose` mostra o trace do agente: cada ferramenta chamada, os argumentos e um resumo do resultado.
 Os modelos podem ser trocados no `.env` (`CHAT_MODEL`, `EMBED_MODEL`).
+O modo híbrido usa o Jev pelo OpenRouter (`JEV_MODEL`, padrão `jev-latest`); `--decider llm` troca
+pelo próprio `CHAT_MODEL`.
 
 ## Avaliação
 
@@ -136,6 +178,8 @@ src/agentic_rag/
   prompts.py     # instruções compartilhadas pelos dois RAGs
   agent.py       # loop agêntico
   simple_rag.py  # baseline
+  decider.py     # decisões tipadas: Jev (TypeSafe) ou LLM com JSON schema
+  hybrid.py      # roteador + verificador em volta dos dois RAGs
   evaluate.py    # avaliação comparativa
   cli.py         # comando `rag`
 data/gerar_pdf.py

@@ -17,6 +17,11 @@ class Settings:
     chat_model: str = os.getenv("CHAT_MODEL", "openai/gpt-4.1-mini")
     embed_model: str = os.getenv("EMBED_MODEL", "openai/text-embedding-3-small")
     index_dir: Path = Path(os.getenv("INDEX_DIR", ".index"))
+    # Modo híbrido (decisões tipadas). O Jev roda pelo OpenRouter, com a mesma chave e a mesma conta.
+    # "jev-latest" vira "~typesafe/jev-latest" no OpenRouter; fixe uma versão (ex.: jev-1.13) para reprodutibilidade.
+    jev_model: str = os.getenv("JEV_MODEL", "jev-latest")
+    route_threshold: float = float(os.getenv("ROUTE_THRESHOLD", "0.8"))
+    evidence_threshold: float = float(os.getenv("EVIDENCE_THRESHOLD", "0.5"))
 
 
 settings = Settings()
