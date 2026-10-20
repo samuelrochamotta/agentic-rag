@@ -10,7 +10,49 @@ sobre o mesmo PDF:
 Os dois usam o mesmo modelo de chat, o mesmo modelo de embedding, os mesmos chunks e `temperature=0`.
 Só a estratégia de recuperação muda. Os modelos rodam via [OpenRouter](https://openrouter.ai).
 
-## Resultado da avaliação (18 perguntas, `openai/gpt-4.1-mini`)
+## Resultado num benchmark externo: FinanceBench
+
+[FinanceBench](https://github.com/patronus-ai/financebench): as 150 perguntas abertas sobre 84
+relatórios da SEC em PDF (10-K, 10-Q, 8-K), com gabarito humano. Um índice por documento, como
+na configuração *single store* do artigo original. Chat `deepseek/deepseek-v4.1-flash`, juiz
+`openai/gpt-6-luna` (outro modelo), embeddings `openai/text-embedding-3-small`.
+
+| sistema | acurácia | recall de evidência | US$/pergunta | latência média |
+|---|--:|--:|--:|--:|
+| RAG simples | 56,7% (1 rodada) | 69% | 0,0013 | 1 chamada (latência medida com fila: não confiável) |
+| RAG agêntico | **88,0%** (3 rodadas: 87,3–89,3%) | 93–95% | 0,0025 | ~14 s |
+
+**Meta não atingida:** o alvo era ≥ 90%. Ficamos ~2 pontos abaixo, e abaixo do topo da lista
+comunitária citada a seguir.
+
+Referências publicadas, não diretamente comparáveis (outros modelos, juízes e configurações):
+GPT-4-Turbo com índice compartilhado ~19%; com o documento inteiro no contexto ~79%; recebendo a
+passagem certa ("oráculo") 85%. O topo de uma
+[lista comunitária](https://benchmarklist.com/benchmarks/financebench/) está em 89,33%.
+
+**Como ler:**
+- *Recall de evidência* = a página anotada pelos autores está entre as que o sistema viu. O agêntico
+  vê a evidência em ~94% das perguntas; a maior parte dos erros restantes é de interpretação.
+- Dos 15 erros persistentes, a maioria diverge do gabarito na *definição* do índice (quick ratio,
+  capital de giro "operacional", giro de estoque) ou num julgamento ("é intensivo em capital?").
+  Não ajustamos o sistema a esses casos.
+- **Atenção: as mesmas 150 perguntas serviram para analisar os erros e para medir** (não há outra
+  divisão aberta). Duas mudanças entraram depois dessa análise: o `read_page` deixou de cortar em
+  4.000 caracteres (36% das páginas de 10-K passavam disso) e `ANSWER_RULES` ganhou a regra de
+  calcular indicadores com a definição usual e concluir. Os exemplos dessa regra ("é intensivo em
+  capital?") e a nota sobre parênteses negativos foram tirados de erros do próprio benchmark. É
+  ajuste no conjunto de teste, mesmo com mecanismo geral.
+- Antes delas: 84,7% (1 rodada). O ganho de ~3 pontos é da ordem da variação entre rodadas (2
+  pontos). O conserto do corte resolveu 2 dos 5 erros com página truncada; o resto veio do prompt.
+  Parte da instabilidade (7 perguntas oscilam entre rodadas) vem do próprio juiz, que também não é
+  determinístico.
+- No conjunto interno (42 perguntas, mesmo chat e juiz), o agêntico fez 99–100% em 3 rodadas antes
+  das mudanças e 100% em 1 rodada depois; o simples, 71–76%. Esse conjunto já não separa versões do
+  sistema: ele serve de guarda contra regressão.
+
+Rode com `uv run rag financebench --systems simple,agentic` (veja `eval/README.md`).
+
+## Rodada original (18 perguntas, `openai/gpt-4.1-mini`)
 
 | categoria | simples | agêntico |
 |---|:-:|:-:|

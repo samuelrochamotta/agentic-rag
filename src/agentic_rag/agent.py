@@ -218,7 +218,8 @@ def run_agent(
             for cid in _collect_chunk_ids(result):
                 if cid not in sources:
                     sources.append(cid)
-            trace.append({"step": step, "tool": name, "args": args, "result_preview": _preview(result)})
+            trace.append({"step": step, "tool": name, "args": args, "result_preview": _preview(result),
+                          "truncated": "...[truncado:" in result})
 
             if verbose:
                 console.print(

@@ -8,7 +8,7 @@ import time
 from dataclasses import dataclass, field
 
 import numpy as np
-from openai import OpenAI
+from openai import APIStatusError, OpenAI
 
 from .config import settings
 
@@ -47,6 +47,24 @@ class Answer:
     trace: list[dict] = field(default_factory=list)
 
 
+# 402 "in_flight_budget_exhausted" e 429 são temporários no OpenRouter: esperar e repetir
+# evita que um pico de chamadas paralelas vire "resposta errada" na avaliação.
+RETRY_STATUS = {402, 429, 502, 503}
+MAX_RETRIES = 4
+
+
+def _with_retry(call):
+    for attempt in range(MAX_RETRIES + 1):
+        try:
+            return call()
+        except APIStatusError as exc:
+            if exc.status_code not in RETRY_STATUS or attempt == MAX_RETRIES:
+                raise
+            retry_after = exc.response.headers.get("retry-after") if exc.response is not None else None
+            wait = float(retry_after) if retry_after and retry_after.isdigit() else 2 ** attempt
+            time.sleep(min(wait, 30.0))
+
+
 class LLMClient:
     def __init__(self, chat_model: str | None = None, embed_model: str | None = None):
         if not settings.api_key:
@@ -65,7 +83,7 @@ class LLMClient:
         if response_format:
             kwargs["response_format"] = response_format
         t0 = time.perf_counter()
-        resp = self.client.chat.completions.create(**kwargs)
+        resp = _with_retry(lambda: self.client.chat.completions.create(**kwargs))
         self.usage.latency_s += time.perf_counter() - t0
         self.usage.llm_calls += 1
         if resp.usage:
@@ -80,7 +98,7 @@ class LLMClient:
         for i in range(0, len(texts), batch_size):
             batch = texts[i:i + batch_size]
             t0 = time.perf_counter()
-            resp = self.client.embeddings.create(model=self.embed_model, input=batch)
+            resp = _with_retry(lambda: self.client.embeddings.create(model=self.embed_model, input=batch))
             self.usage.latency_s += time.perf_counter() - t0
             self.usage.embed_calls += 1
             if resp.usage:

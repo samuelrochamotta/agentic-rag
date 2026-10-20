@@ -4,6 +4,7 @@ version = "0.1.0"
 description = "RAG agêntico vs RAG simples — projeto didático com OpenRouter"
 requires-python = ">=3.12"
 dependencies = [
+    "cryptography>=50.0.2",
     "numpy>=2.5.3",
     "openai>=3.26.1",
     "pypdf>=6.19.0",

@@ -5,7 +5,7 @@ import json
 import numpy as np
 import pytest
 
-from agentic_rag.tools import MAX_OUTPUT_CHARS, TOOL_SCHEMAS, ToolBox, safe_eval
+from agentic_rag.tools import TOOL_OUTPUT_CHARS, TOOL_SCHEMAS, ToolBox, safe_eval
 from conftest import make_store
 
 
@@ -117,7 +117,11 @@ def test_errors_become_strings(box):
 
 
 def test_output_is_truncated(box):
+    # read_page tem limite próprio, maior: uma página de 10 mil caracteres passa inteira...
     box.store.pages["manual"][0] = "x" * 10_000
+    assert "truncado" not in box.call("read_page", {"doc_id": "manual", "page": 1})
+    # ...mas acima do limite dela também é cortada.
+    box.store.pages["manual"][0] = "x" * 20_000
     out = box.call("read_page", {"doc_id": "manual", "page": 1})
-    assert len(out) < MAX_OUTPUT_CHARS + 100
+    assert len(out) < TOOL_OUTPUT_CHARS["read_page"] + 100
     assert "truncado" in out

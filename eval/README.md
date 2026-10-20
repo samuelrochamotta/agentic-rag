@@ -76,11 +76,38 @@ Os relatórios anteriores cobrem apenas as 18 perguntas originais. Para comparar
 eles, selecione `q01`–`q18` explicitamente em `--only`. O conjunto foi construído para
 explorar limitações conhecidas e não representa a distribuição de perguntas reais.
 
+## Juiz independente, citações e várias rodadas
+
+- O juiz usa `JUDGE_MODEL` (padrão `openai/gpt-6-luna`), diferente do `CHAT_MODEL`
+  (padrão `deepseek/deepseek-v4.1-flash`). Antes, o mesmo modelo respondia e corrigia.
+- `sem_resposta` agora exige declarar a ausência **e** passar pelo juiz: "não encontrei,
+  mas o valor é X" deixou de contar como acerto.
+- Cada resposta recebe uma **checagem de citações** sem API: as âncoras de cada frase com
+  `[p. N]` (códigos, números com 2+ dígitos, nomes próprios) precisam estar na página citada.
+  O relatório mostra a precisão de citação e lista as citações em página errada. Valores
+  calculados pelo modelo não aparecem no texto e ficam fora da conta; frases sem citação
+  própria também.
+- `temperature=0` não torna o OpenRouter determinístico. Rode várias vezes e resuma:
+
+```bash
+for i in 1 2 3; do uv run rag eval --out eval/runs/baseline_r$i; done
+uv run rag summarize eval/runs/baseline_r*/results.json --out eval/runs/baseline.md
+```
+
+## Benchmark externo: FinanceBench
+
+`uv run rag financebench --systems simple,agentic` roda as 150 perguntas abertas do
+[FinanceBench](https://github.com/patronus-ai/financebench) (relatórios da SEC em PDF, gabarito
+humano), com um índice por documento, como na configuração *single store* do artigo. Além da
+acurácia, o relatório mede o **recall de evidência**: se a página anotada pelos autores está entre
+as que o sistema viu. Isso separa erro de busca de erro de leitura ou cálculo. Veja em
+`src/agentic_rag/financebench.py` como baixar os dados para `data/financebench/` (fora do git).
+
 ## Como a nota é dada
 
 O critério está em `src/agentic_rag/evaluate.py`. Uma resposta está correta quando o juiz (LLM) a considera equivalente
 ao `gold` **e** todos os termos de `must_contain` aparecem nela. A comparação ignora maiúsculas e
-acentos. Em `sem_resposta`, a resposta precisa declarar que a informação não está no documento.
+acentos.
 
 Os termos de `must_contain` copiam o formato do PDF (ex.: `4.870.000`, `15.850`, `2,7`). Se o modelo
 reescrever um valor ("R$ 4,87 milhões"), a checagem determinística falha mesmo com a resposta certa.
@@ -90,6 +117,5 @@ prioriza identificadores, nomes e termos estáveis.
 
 `resposta_parcial` usa a avaliação normal pelo juiz e pelos termos obrigatórios:
 admitir ausência sem responder a parte conhecida deve ser considerado incorreto.
-Em `sem_resposta`, a implementação atual verifica apenas a declaração de ausência,
-sem consultar o juiz; uma resposta que também invente fatos pode receber um falso
-positivo. Leia as respostas completas nesses casos.
+Em `sem_resposta`, a resposta precisa declarar a ausência e o juiz precisa confirmar que
+ela não inventou o dado.

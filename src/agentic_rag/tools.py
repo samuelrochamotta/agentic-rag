@@ -15,6 +15,9 @@ from .llm import LLMClient
 from .store import Chunk, DocumentStore
 
 MAX_OUTPUT_CHARS = 4000  # resultados longos enchem o contexto e encarecem cada passo seguinte
+# read_page é a ferramenta de "ler a tabela inteira": cortá-la no meio esconde justamente a linha
+# procurada. 12.000 cobre todas as páginas dos 84 relatórios do FinanceBench (a maior tem 10.436).
+TOOL_OUTPUT_CHARS = {"read_page": 12000}
 MAX_K = 20
 
 
@@ -186,7 +189,7 @@ class ToolBox:
             return f"ERRO: ferramenta desconhecida '{name}'. Disponíveis: " + ", ".join(
                 t["function"]["name"] for t in TOOL_SCHEMAS)
         try:
-            return _truncate(method(**(args or {})))
+            return _truncate(method(**(args or {})), TOOL_OUTPUT_CHARS.get(name, MAX_OUTPUT_CHARS))
         except TypeError as e:
             return f"ERRO: argumentos inválidos para {name}: {e}"
         except Exception as e:  # noqa: BLE001 — qualquer falha vira mensagem para o LLM

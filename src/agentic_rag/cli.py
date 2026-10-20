@@ -5,6 +5,8 @@
     rag chat [--mode agentic|simple|both|hybrid]
     rag eval [--only q01,q02] [--workers 4] [--systems simple,agentic,hybrid] [--decider jev|llm]
     rag regrade eval/runs/results_jev.json [...]
+    rag financebench [--systems simple,agentic] [--limit 10]
+    rag summarize eval/runs/r1/results.json eval/runs/r2/results.json [...]
 
 O caminho do índice ativo fica em `.index/current`, assim `ask/chat/eval` não
 precisam receber o índice toda vez.
@@ -172,8 +174,9 @@ def cmd_eval(args) -> None:
     if unknown or not systems:
         console.print(f"[red]--systems inválido:[/] {args.systems} (use simple, agentic, hybrid)")
         sys.exit(1)
-    run_evaluation(store, questions_path=Path(args.questions), only=only, workers=args.workers,
-                   max_steps=args.max_steps, console=console, systems=systems, decider_kind=args.decider)
+    run_evaluation(store, questions_path=Path(args.questions), out_dir=Path(args.out), only=only,
+                   workers=args.workers, max_steps=args.max_steps, console=console, systems=systems,
+                   decider_kind=args.decider)
 
 
 def cmd_regrade(args) -> None:
@@ -181,7 +184,26 @@ def cmd_regrade(args) -> None:
 
     for path in args.results:
         console.rule(path)
-        regrade(Path(path), workers=args.workers, console=console)
+        # Com índice, também refaz a checagem de citações; sem ele, só rejulga.
+        store = _load_store() if CURRENT_FILE.exists() else None
+        regrade(Path(path), workers=args.workers, console=console, store=store)
+
+
+def cmd_financebench(args) -> None:
+    from .financebench import run
+
+    systems = tuple(x.strip() for x in args.systems.split(",") if x.strip())
+    only = [x.strip() for x in args.only.split(",") if x.strip()] if args.only else None
+    run(systems=systems, limit=args.limit, only=only, workers=args.workers, max_steps=args.max_steps,
+        out_dir=Path(args.out), console=console)
+
+
+def cmd_summarize(args) -> None:
+    from .evaluate import summarize_runs
+
+    md = summarize_runs([Path(p) for p in args.results], console=console)
+    if args.out:
+        Path(args.out).write_text(md, encoding="utf-8")
 
 
 def main(argv: list[str] | None = None) -> None:
@@ -217,12 +239,27 @@ def main(argv: list[str] | None = None) -> None:
     p.add_argument("--systems", default="simple,agentic,hybrid", help="sistemas a avaliar, separados por vírgula")
     p.add_argument("--decider", choices=["jev", "llm"], default=None,
                    help="quem toma as decisões do modo híbrido (padrão: jev, via OpenRouter)")
+    p.add_argument("--out", default="eval", help="pasta de saída de results.json/.md (default eval)")
     p.set_defaults(func=cmd_eval)
 
     p = sub.add_parser("regrade", help="rejulga respostas salvas com o juiz atual (sem rodar os sistemas)")
     p.add_argument("results", nargs="+", help="arquivos results.json")
     p.add_argument("--workers", type=int, default=4)
     p.set_defaults(func=cmd_regrade)
+
+    p = sub.add_parser("financebench", help="benchmark externo: 150 perguntas sobre relatórios da SEC")
+    p.add_argument("--systems", default="agentic", help="simple,agentic")
+    p.add_argument("--limit", type=int, help="só as N primeiras perguntas")
+    p.add_argument("--only", help="financebench_ids separados por vírgula")
+    p.add_argument("--workers", type=int, default=6)
+    p.add_argument("--max-steps", type=int, default=8)
+    p.add_argument("--out", default="eval/financebench")
+    p.set_defaults(func=cmd_financebench)
+
+    p = sub.add_parser("summarize", help="média e faixa entre várias rodadas (results.json)")
+    p.add_argument("results", nargs="+", help="arquivos results.json, um por rodada")
+    p.add_argument("--out", help="salva o resumo em Markdown")
+    p.set_defaults(func=cmd_summarize)
 
     args = parser.parse_args(argv)
     args.func(args)

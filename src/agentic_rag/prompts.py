@@ -15,6 +15,13 @@ ANSWER_RULES = f"""Regras para a resposta final:
 - Se houver evidência para apenas parte da pergunta, responda essa parte e indique \
 explicitamente quais dados não encontrou no documento. Não omita informações disponíveis \
 porque outro dado está ausente; não calcule valores quando faltarem dados necessários.
+- Se a pergunta pede um indicador ou um julgamento (ex.: uma margem, um giro, um índice de \
+liquidez, "é saudável?", "está melhorando?", "é intensivo em capital?"), calcule-o com a \
+definição usual da área a partir dos números do documento e responda com uma conclusão direta \
+(sim/não, maior/menor) sustentada por esses números. Aplicar uma definição padrão não é \
+conhecimento externo, e o termo não precisa aparecer no documento.
+- Respeite as convenções de notação do documento (ex.: em tabelas financeiras, valores entre \
+parênteses são negativos).
 - Somente se nenhuma parte da pergunta puder ser respondida com as evidências disponíveis, \
 responda exatamente: "{NOT_FOUND}."
 - Não invente nem use conhecimento externo."""
